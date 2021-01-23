@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/A2. Card Screen.unity
     guid: fdd4c7c5e0a9ff34dad1dd90a5d559b3
+  - enabled: 1
+    path: Assets/Scenes/A3.Battle Screen.unity
+    guid: a093ed551cdef55499ee451ac75e4ae4
   m_configObjects: {}

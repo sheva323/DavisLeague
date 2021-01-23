@@ -7,8 +7,6 @@ public class PoolManager : MonoBehaviour
 {
 
     public GameObject[] cardsPrefab;
-    public GameObject poolPrevious;
-    public GameObject poolGame;
     public RectTransform[] cardPosition;
     public GameObject[] cardsRandom;
     

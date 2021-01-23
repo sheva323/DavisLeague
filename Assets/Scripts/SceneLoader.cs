@@ -22,4 +22,8 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+    public void LoadA3Scene()
+    {
+        SceneManager.LoadScene(4);
+    }
 }

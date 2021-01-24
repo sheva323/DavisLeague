@@ -23,19 +23,19 @@ public class CardValue : MonoBehaviour
         switch (tagCard)
         {
             case "allstar":
-                Cardvalue = Random.Range(0, 5);
+                Cardvalue = Random.Range(20, 29);
                 textValue.text = Cardvalue.ToString();
                 break;
             case "roleplayer":
-                Cardvalue = Random.Range(6, 10);
+                Cardvalue = Random.Range(10, 19);
                 textValue.text = Cardvalue.ToString();
                 break;
             case "benchwarmer":
-                Cardvalue = Random.Range(11, 15);
+                Cardvalue = Random.Range(1, 9);
                 textValue.text = Cardvalue.ToString();
                 break;
             case "superstar":
-                Cardvalue = Random.Range(16, 19);
+                Cardvalue = Random.Range(30, 40);
                 textValue.text = Cardvalue.ToString();
                 break;
             default:

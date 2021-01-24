@@ -7,11 +7,10 @@ public class DropSlot : MonoBehaviour, IDropHandler
 {
     public GameObject item;
     public int Cardvalue;
+    public int SlotIndex;
+    public string ValueArray; 
     // Start is called before the first frame update
-    void Start()
-    {
 
-    }
     public void OnDrop(PointerEventData eventData)
     {
         if (!item)
@@ -21,7 +20,9 @@ public class DropSlot : MonoBehaviour, IDropHandler
             item.transform.position = transform.position;
             Debug.Log("ASIGNÓ CARTA");
             Cardvalue = item.GetComponent<CardValue>().Cardvalue;
+            PlayerPrefs.SetInt(ValueArray, Cardvalue);
             Debug.Log(Cardvalue);
+            Debug.Log(PlayerPrefs.GetInt(ValueArray));
         }
     }
 
@@ -32,5 +33,9 @@ public class DropSlot : MonoBehaviour, IDropHandler
         {
             item = null;
         }
+    }
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        Debug.Log("Colision");
     }
 }

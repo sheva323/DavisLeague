@@ -40,11 +40,4 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
         }
     }
 
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

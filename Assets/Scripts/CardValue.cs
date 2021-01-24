@@ -10,13 +10,12 @@ public class CardValue : MonoBehaviour
     public string tagCard;
     public Text textValue;
 
+    //generates a ranged random value to 20 random cards showed on scene A1 (LOWER PART), depending on tag (allstar, roleplayer, benchwarmer or superstar)
     private void Start()
     {
         textValue = GetComponentInChildren<Text>();
         tagCard = this.tag;
         ValueInCard();
-        print(tagCard);
-
     }
     public void ValueInCard ()
     {

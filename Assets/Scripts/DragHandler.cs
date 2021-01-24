@@ -10,7 +10,7 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
     Transform startParent;
     Transform dragParent;
 
-    // Start is called before the first frame update
+    //Dragable object is marked with tag "DragParent"
     void Start()
     {
         dragParent = GameObject.FindGameObjectWithTag("DragParent").transform;
@@ -30,7 +30,7 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
         transform.position = Input.mousePosition;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public void OnEndDrag(PointerEventData eventData) //Change position of draggable object
     {
         itemDragging = null;
         if (transform.parent == dragParent)

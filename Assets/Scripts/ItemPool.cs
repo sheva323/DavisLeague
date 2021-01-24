@@ -8,6 +8,6 @@ public class ItemPool : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
-        DragHandler.itemDragging.transform.SetParent(transform);
+        DragHandler.itemDragging.transform.SetParent(transform); //Get draggable object as children
     }
 }

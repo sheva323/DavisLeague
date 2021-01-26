@@ -6,26 +6,31 @@ public class ChargeCardValuesSlot4 : MonoBehaviour
 {
     public void Awake()
     {
+        PlayerPrefs.DeleteAll();
+    }
+
+    private void Update()
+    {
         CardValue4();
     }
+
     public void CardValue4()
     {
-        Debug.Log(PlayerPrefs.GetInt("Value4"));
-        if (PlayerPrefs.GetInt("Value4") <= 40 && PlayerPrefs.GetInt("Value4") >= 30)
-        {
-            transform.GetChild(3).gameObject.SetActive(true);
-        }
-        else if (PlayerPrefs.GetInt("Value4") <= 29 && PlayerPrefs.GetInt("Value4") >= 20)
+        if (PlayerPrefs.GetInt("Value4") <= 55 && PlayerPrefs.GetInt("Value4") >= 50)
         {
             transform.GetChild(0).gameObject.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("Value4") <= 19 && PlayerPrefs.GetInt("Value4") >= 10)
-        {
-            transform.GetChild(2).gameObject.SetActive(true);
-        }
-        else
+        else if (PlayerPrefs.GetInt("Value4") <= 49 && PlayerPrefs.GetInt("Value4") >= 40)
         {
             transform.GetChild(1).gameObject.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("Value4") <= 39 && PlayerPrefs.GetInt("Value4") >= 10)
+        {
+            transform.GetChild(Random.Range(2, 4)).gameObject.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("Value4") <= 9 && PlayerPrefs.GetInt("Value4") >= 1)
+        {
+            transform.GetChild(5).gameObject.SetActive(true);
         }
     }
 }

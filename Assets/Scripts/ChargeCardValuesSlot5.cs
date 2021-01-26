@@ -6,26 +6,30 @@ public class ChargeCardValuesSlot5 : MonoBehaviour
 {
     public void Awake()
     {
+        PlayerPrefs.DeleteAll();
+    }
+
+    private void Update()
+    {
         CardValue5();
     }
     public void CardValue5()
     {
-        Debug.Log(PlayerPrefs.GetInt("Value5"));
-        if (PlayerPrefs.GetInt("Value5") <= 40 && PlayerPrefs.GetInt("Value5") >= 30)
-        {
-            transform.GetChild(3).gameObject.SetActive(true);
-        }
-        else if (PlayerPrefs.GetInt("Value5") <= 29 && PlayerPrefs.GetInt("Value5") >= 20)
+        if (PlayerPrefs.GetInt("Value5") <= 55 && PlayerPrefs.GetInt("Value5") >= 50)
         {
             transform.GetChild(0).gameObject.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("Value5") <= 19 && PlayerPrefs.GetInt("Value5") >= 10)
-        {
-            transform.GetChild(2).gameObject.SetActive(true);
-        }
-        else
+        else if (PlayerPrefs.GetInt("Value5") <= 49 && PlayerPrefs.GetInt("Value5") >= 40)
         {
             transform.GetChild(1).gameObject.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("Value5") <= 39 && PlayerPrefs.GetInt("Value5") >= 10)
+        {
+            transform.GetChild(Random.Range(2, 4)).gameObject.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("Value5") <= 9 && PlayerPrefs.GetInt("Value5") >= 1)
+        {
+            transform.GetChild(5).gameObject.SetActive(true);
         }
     }
 }

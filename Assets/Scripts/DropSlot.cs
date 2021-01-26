@@ -33,6 +33,7 @@ public class DropSlot : MonoBehaviour, IDropHandler
             item = null;
         }
     }
+
     private void OnTriggerEnter2D(Collider2D coll)
     {
         Debug.Log("Colision");

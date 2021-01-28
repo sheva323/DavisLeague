@@ -13,13 +13,14 @@ public class PoolManager : MonoBehaviour
     public float speed = 10.0f;
     public bool canmove;
     public float accuracy = 0.01f;
-    int i = 0;
+    public int index;
     // Start is called before the first frame update
     void Start()
 
     //This script creates 20 random cards Between AllStar, Superstar, Roleplayer, Bencharmer. Creates a copy of 4 Prefabs cards
     //Storage them in PoolGame (Scene A1)
     {
+        index = 0;
         for (int i = 0; i < 20; i++)
         {
             cardsRandom[i] = Instantiate(cardsPrefab[Random.Range(0, 4)], cardPosition[i].parent);
@@ -30,17 +31,11 @@ public class PoolManager : MonoBehaviour
     {
         if (canmove)
         {
-            for (int j =0; j<4; j++)
-            GetCards();
-            if (!canmove)
-            {
-                i++;
-            }
-
+            GetCards(index);
         }
     }
    
-    public void GetCards()
+    public void GetCards(int i)
     { 
         Vector2 CardPositionNew = PreviewPosition[i].transform.position - cardsRandom[i].transform.position;
             {
@@ -51,7 +46,11 @@ public class PoolManager : MonoBehaviour
                 }
                 else
                 {
-                    canmove = false;
+                    if (index == (cardsRandom.Length - 1))
+                    {
+                        canmove = false;
+                    }
+                    index++;
                     PlayerPrefs.SetInt("canmove", 0);
                 }
             }

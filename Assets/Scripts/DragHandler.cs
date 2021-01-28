@@ -42,12 +42,12 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
         //if (PlayerPrefs.GetInt("canmove") == 0)
         {
             itemDragging = null;
-            /*
+            
             if (transform.parent == dragParent)
             {
                 transform.position = startPosition;
                 transform.SetParent(startParent);
-            }*/
+            }
         }
 
 

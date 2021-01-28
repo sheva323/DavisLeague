@@ -89,8 +89,9 @@ GameObject:
   - component: {fileID: 8858937321273569088}
   - component: {fileID: 8858937321273569091}
   - component: {fileID: 8858937321273569090}
-  - component: {fileID: 8858937321273569089}
   - component: {fileID: 8858937321273568956}
+  - component: {fileID: 8338589345358329771}
+  - component: {fileID: 7017293520600219283}
   m_Layer: 5
   m_Name: RolePlayerCard
   m_TagString: roleplayer
@@ -155,18 +156,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8858937321273569089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8858937321273569095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f892a93f8e04e174a915cb3c1020cd41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8858937321273568956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,3 +171,27 @@ MonoBehaviour:
   Cardvalue: 20
   tagCard: 
   textValue: {fileID: 0}
+--- !u!114 &8338589345358329771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8858937321273569095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 997f01184bbd7944bb08938e86dcc85d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &7017293520600219283
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8858937321273569095}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

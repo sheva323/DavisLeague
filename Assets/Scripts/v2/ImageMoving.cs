@@ -12,55 +12,34 @@ public class ImageMoving : MonoBehaviour
     public bool canmove;
 
  
-    public void Recall ()
-    {
-        if (canmove)
-        {
-            GetCards();
-            Debug.Log("CanmoveFunction");
-        }
-    }
-
     public void Update()
     {
         if (canmove)
         {
-            StarMovement();
+            GetCards();
         }
     }
     public void GetCards()
     {
-
-        int i = 0;
-        if (i<3)
+        for (int i = 0; i < 3; i++)
         {
-                Vector2 CardPositionNew = PreviewPosition[i].transform.position - PlayerCards[i].transform.position;
+            Vector2 CardPositionNew = PreviewPosition[i].transform.position - PlayerCards[i].transform.position;
 
-                if (CardPositionNew.magnitude > accuracy)
-                {
-                    PlayerCards[i].transform.Translate(CardPositionNew * speed * Time.deltaTime);
-                    Debug.Log("mueve");
-                }
-                else
-                {
-                    Debug.Log("Llego");
-                    //canmove = false;
-                    i++;
-                    Debug.Log(i);
-                }
-                
+            if (CardPositionNew.magnitude > accuracy)
+            {
+                PlayerCards[i].transform.Translate(CardPositionNew * speed * Time.deltaTime);
+                Debug.Log("mueve");
+            }
+            
+            else
+            {
+                canmove = false;
+            }
         }
-        else
-        {
-            canmove = false;
-        }
-
-
     }
     
     public void StarMovement()
     {
-        Recall();
         canmove = true;
     }
     

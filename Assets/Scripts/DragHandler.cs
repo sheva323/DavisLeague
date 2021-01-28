@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
 public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
+
 {
     public static GameObject itemDragging;
     Vector3 startPosition;
     Transform startParent;
     Transform dragParent;
+
 
     //Dragable object is marked with tag "DragParent"
     void Start()
@@ -17,27 +18,40 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        itemDragging = gameObject;
+        //if (PlayerPrefs.GetInt("canmove")==0)
+        {
+            itemDragging = gameObject;
+            startPosition = transform.position;
+            startParent = transform.parent;
+            transform.SetParent(dragParent);
+        }
 
-        startPosition = transform.position;
-        startParent = transform.parent;
-
-        transform.SetParent(dragParent);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        //if (PlayerPrefs.GetInt("canmove") == 0)
+        {
+            transform.position = Input.mousePosition;
+        }
+
     }
 
     public void OnEndDrag(PointerEventData eventData) //Change position of draggable object
     {
-        itemDragging = null;
-        if (transform.parent == dragParent)
+        //if (PlayerPrefs.GetInt("canmove") == 0)
         {
-            transform.position = startPosition;
-            transform.SetParent(startParent);
+            itemDragging = null;
+            /*
+            if (transform.parent == dragParent)
+            {
+                transform.position = startPosition;
+                transform.SetParent(startParent);
+            }*/
         }
+
+
+
     }
 
 }

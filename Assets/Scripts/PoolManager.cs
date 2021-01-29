@@ -14,6 +14,12 @@ public class PoolManager : MonoBehaviour
     public bool canmove;
     public float accuracy = 0.01f;
     public int index;
+    public GameObject CardsPanel;
+    public GameObject PoolGamePanel;
+    public GameObject DummyTotal;
+    public GameObject[] Dummy;
+
+
     // Start is called before the first frame update
     void Start()
 
@@ -24,6 +30,7 @@ public class PoolManager : MonoBehaviour
         for (int i = 0; i < 20; i++)
         {
             cardsRandom[i] = Instantiate(cardsPrefab[Random.Range(0, 4)], cardPosition[i].parent);
+
         }
     }
 
@@ -36,27 +43,38 @@ public class PoolManager : MonoBehaviour
     }
    
     public void GetCards(int i)
-    { 
-        Vector2 CardPositionNew = PreviewPosition[i].transform.position - cardsRandom[i].transform.position;
+    {
+        Vector2 CardPositionNew = PreviewPosition[i].transform.position - Dummy[i].transform.position;
+        {
+            if (CardPositionNew.magnitude > accuracy)
             {
-                if (CardPositionNew.magnitude > accuracy)
-                {
-                    cardsRandom[i].transform.Translate(CardPositionNew * speed * Time.deltaTime);
-                    PlayerPrefs.SetInt("canmove", 1);
+                Dummy[i].transform.Translate(CardPositionNew * speed * Time.deltaTime);
+                PlayerPrefs.SetInt("canmove", 1);
+                
+                if (cardsRandom[i].gameObject.CompareTag ("superstar"))
+                    {
+                    Debug.Log("prueba");
+                    //canmove = false;
+                    }
+                
                 }
                 else
                 {
-                    if (index == (cardsRandom.Length - 1))
+                    if (index == (Dummy.Length - 1))
                     {
                         canmove = false;
+                        CardsPanel.transform.position = PoolGamePanel.transform.position;
+                        PoolGamePanel.SetActive(false);
+                        DummyTotal.SetActive(false);
                     }
                     index++;
                     PlayerPrefs.SetInt("canmove", 0);
+                    
                 }
             }
     }
 
-    public void StarMovement()
+    public void StarMovement() //function is called with button
     {
         canmove = true;
     }

@@ -90,8 +90,7 @@ GameObject:
   - component: {fileID: 6000512386409370997}
   - component: {fileID: 6000512386409370996}
   - component: {fileID: 6000512386409370998}
-  - component: {fileID: 2254857416627352694}
-  - component: {fileID: 1766273564260503076}
+  - component: {fileID: 7267888512425454800}
   m_Layer: 5
   m_Name: SuperStarCard
   m_TagString: superstar
@@ -146,7 +145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f16a70c9aa8969048a6d703c97b3ff64, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5af46830db9a0b74ea9534b52401e533, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -171,7 +170,7 @@ MonoBehaviour:
   Cardvalue: 30
   tagCard: 
   textValue: {fileID: 0}
---- !u!114 &2254857416627352694
+--- !u!114 &7267888512425454800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,18 +179,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6000512386409370993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 997f01184bbd7944bb08938e86dcc85d, type: 3}
+  m_Script: {fileID: 11500000, guid: f892a93f8e04e174a915cb3c1020cd41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!225 &1766273564260503076
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6000512386409370993}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0

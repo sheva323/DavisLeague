@@ -5,12 +5,12 @@ using UnityEngine.EventSystems;
 
 public class ItemSlot : MonoBehaviour, IDropHandler
 {
+    public GameObject item;
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("OnDrop");
-        if (eventData.pointerDrag != null)
+        if (!item)
         {
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+
         }
 
     }

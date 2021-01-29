@@ -5,37 +5,44 @@ using UnityEngine.EventSystems;
 
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    private RectTransform rectTransform;
-    private CanvasGroup canvasGroup;
-    private void Awake()
+    public GameObject itemDragging;
+    Vector3 startPosition;
+    Transform startParent;
+    Transform dragParent;
+    void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
-        canvasGroup = GetComponent<CanvasGroup>();
+        dragParent = GameObject.FindGameObjectWithTag("DragParent").transform;
     }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("OnBeginDrag");
-        canvasGroup.alpha = .6f;
-        canvasGroup.blocksRaycasts = false;
+        itemDragging = gameObject;
+        startPosition = transform.position;
+        startParent = transform.parent;
+        transform.SetParent(dragParent);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta;
+        transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("OnEndDrag");
-        canvasGroup.alpha = 1f;
-        canvasGroup.blocksRaycasts = true;
+        itemDragging = null;
+        if (transform.parent == dragParent)
+        {
+            transform.position = startPosition;
+            transform.SetParent(startParent);
+        }
+
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("OnPointerDown");
     }
-
-
 }

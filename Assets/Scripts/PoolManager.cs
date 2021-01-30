@@ -10,7 +10,7 @@ public class PoolManager : MonoBehaviour
     public RectTransform[] cardPosition;
     public GameObject[] cardsRandom;
     public RectTransform [] PreviewPosition;
-    public float speed = 10.0f;
+    float speed ;
     public bool canmove;
     public float accuracy = 0.01f;
     public int index;
@@ -18,6 +18,10 @@ public class PoolManager : MonoBehaviour
     public GameObject PoolGamePanel;
     public GameObject DummyTotal;
     public GameObject[] Dummy;
+    public AudioSource CardSound;
+    public AudioSource SuperStarSound;
+
+    //public ParticleSystem Particles; 
 
 
     // Start is called before the first frame update
@@ -29,7 +33,7 @@ public class PoolManager : MonoBehaviour
         index = 0;
         for (int i = 0; i < 20; i++)
         {
-            cardsRandom[i] = Instantiate(cardsPrefab[Random.Range(0, 4)], cardPosition[i].parent);
+            cardsRandom[i] = Instantiate(cardsPrefab[Random.Range(0, 6)], cardPosition[i].parent);
 
         }
     }
@@ -41,6 +45,14 @@ public class PoolManager : MonoBehaviour
             GetCards(index);
         }
     }
+
+    public void SoundCards ()
+    {
+        if (canmove)
+        {
+            CardSound.Play();
+        }
+    }
    
     public void GetCards(int i)
     {
@@ -48,17 +60,19 @@ public class PoolManager : MonoBehaviour
         {
             if (CardPositionNew.magnitude > accuracy)
             {
-                Dummy[i].transform.Translate(CardPositionNew * speed * Time.deltaTime);
-                PlayerPrefs.SetInt("canmove", 1);
-                
-                if (cardsRandom[i].gameObject.CompareTag ("superstar"))
-                    {
-                    Debug.Log("prueba");
-                    //canmove = false;
-                    }
-                
+                if (cardsRandom[i].gameObject.CompareTag("superstar"))
+                {
+                    speed = 5;                   
+                    Dummy[i].transform.Translate(CardPositionNew * speed * Time.deltaTime);
+                    Dummy[i].GetComponentInChildren<ParticleSystem>().Play();
                 }
                 else
+                {
+                    speed = 20;
+                    Dummy[i].transform.Translate(CardPositionNew * speed * Time.deltaTime);
+                }                
+            }
+            else
                 {
                     if (index == (Dummy.Length - 1))
                     {
@@ -68,8 +82,15 @@ public class PoolManager : MonoBehaviour
                         DummyTotal.SetActive(false);
                     }
                     index++;
-                    PlayerPrefs.SetInt("canmove", 0);
-                    
+                    CardSound.Play(); 
+                        if (index < Dummy.Length-1)
+                        {
+                            if ((cardsRandom[index].gameObject.CompareTag("superstar")))
+                            {
+                                SuperStarSound.Play();
+                            }
+                        }
+                        
                 }
             }
     }
@@ -77,5 +98,10 @@ public class PoolManager : MonoBehaviour
     public void StarMovement() //function is called with button
     {
         canmove = true;
+        if (cardsRandom[0].gameObject.CompareTag("superstar"))
+        {
+            SuperStarSound.Play();
+        }
+        CardSound.Play();
     }
 }

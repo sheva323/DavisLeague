@@ -8,9 +8,7 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
     Vector3 startPosition;
     Transform startParent;
     Transform dragParent;
-
-
-    //Dragable object is marked with tag "DragParent"
+       //Dragable object is marked with tag "DragParent"
     void Start()
     {
         dragParent = GameObject.FindGameObjectWithTag("DragParent").transform;
@@ -27,9 +25,8 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
 
     public void OnDrag(PointerEventData eventData)
     {
-        {
-            transform.position = Input.mousePosition;
-        }
+        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 
+            itemDragging.transform.position.z ));
     }
 
     public void OnEndDrag(PointerEventData eventData) //Change position of draggable object

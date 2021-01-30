@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 8858937321273568956}
   - component: {fileID: 8332877036136087045}
   m_Layer: 5
-  m_Name: RolePlayerCard
+  m_Name: RolePlayerCard3
   m_TagString: roleplayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2a75a5bfe98eb2141858bd1f39aa8587, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7e44a728a76fc1a41bac791a646d992a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -182,4 +182,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f892a93f8e04e174a915cb3c1020cd41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 0}

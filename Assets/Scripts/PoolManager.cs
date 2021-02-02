@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PoolManager : MonoBehaviour
 {
-
+    public Button GetYourHand;
     public GameObject[] cardsPrefab;
     public RectTransform[] cardPosition;
     public GameObject[] cardsRandom;
@@ -20,8 +20,7 @@ public class PoolManager : MonoBehaviour
     public GameObject[] Dummy;
     public AudioSource CardSound;
     public AudioSource SuperStarSound;
-
-    //public ParticleSystem Particles; 
+    public ParticleSystem ParticlesChange; 
 
 
     // Start is called before the first frame update
@@ -56,15 +55,17 @@ public class PoolManager : MonoBehaviour
    
     public void GetCards(int i)
     {
+        GetYourHand.gameObject.SetActive(false);
         Vector2 CardPositionNew = PreviewPosition[i].transform.position - Dummy[i].transform.position;
         {
             if (CardPositionNew.magnitude > accuracy)
             {
                 if (cardsRandom[i].gameObject.CompareTag("superstar"))
                 {
-                    speed = 5;                   
+                    speed = 4;
+                    Dummy[i].GetComponentsInChildren<ParticleSystem>()[1].Play();
                     Dummy[i].transform.Translate(CardPositionNew * speed * Time.deltaTime);
-                    Dummy[i].GetComponentInChildren<ParticleSystem>().Play();
+                    
                 }
                 else
                 {
@@ -76,19 +77,35 @@ public class PoolManager : MonoBehaviour
                 {
                     if (index == (Dummy.Length - 1))
                     {
+                        if (cardsRandom[index].gameObject.CompareTag("superstar"))
+                        {
+                            Dummy[index].GetComponentsInChildren<ParticleSystem>()[0].Play();
+                        }
                         canmove = false;
+                        
                         CardsPanel.transform.position = PoolGamePanel.transform.position;
+                        
                         PoolGamePanel.SetActive(false);
                         DummyTotal.SetActive(false);
                     }
-                    index++;
-                    CardSound.Play(); 
-                        if (index < Dummy.Length-1)
+                    else if (cardsRandom[i].gameObject.CompareTag("superstar"))
+                    {
+                        Dummy[i].GetComponentsInChildren<ParticleSystem>()[1].Stop(); 
+                        Dummy[i].GetComponentsInChildren<ParticleSystem>()[0].Play();
+                    }
+                    
+                index++;
+                CardSound.Play(); 
+                    if (index == Dummy.Length - 1)
+                    {
+                        ParticlesChange.Play();
+                    }
+                    else if (index <= Dummy.Length-1)
                         {
-                            if ((cardsRandom[index].gameObject.CompareTag("superstar")))
-                            {
-                                SuperStarSound.Play();
-                            }
+                           if ((cardsRandom[index].gameObject.CompareTag("superstar")))
+                           {
+                                SuperStarSound.Play();                              
+                           }   
                         }
                         
                 }

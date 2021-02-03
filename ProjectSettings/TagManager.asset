@@ -9,6 +9,8 @@ TagManager:
   - roleplayer
   - benchwarmer
   - superstar
+  - roleplayer2
+  - roleplayer3
   layers:
   - Default
   - TransparentFX

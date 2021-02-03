@@ -96,7 +96,7 @@ public class PoolManager : MonoBehaviour
                     
                 index++;
                 CardSound.Play(); 
-                    if (index == Dummy.Length - 1)
+                    if (index == Dummy.Length)
                     {
                         ParticlesChange.Play();
                     }

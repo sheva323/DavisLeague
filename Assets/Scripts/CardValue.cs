@@ -26,7 +26,15 @@ public class CardValue : MonoBehaviour
                 textValue.text = Cardvalue.ToString();
                 break;
             case "roleplayer":
-                Cardvalue = Random.Range(10, 39);
+                Cardvalue = Random.Range(30, 39);
+                textValue.text = Cardvalue.ToString();
+                break;
+            case "roleplayer2":
+                Cardvalue = Random.Range(20, 29);
+                textValue.text = Cardvalue.ToString();
+                break;
+            case "roleplayer3":
+                Cardvalue = Random.Range(10, 19);
                 textValue.text = Cardvalue.ToString();
                 break;
             case "benchwarmer":

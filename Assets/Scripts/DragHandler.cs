@@ -5,9 +5,11 @@ using UnityEngine.EventSystems;
 public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     public static GameObject itemDragging;
+    //public GameObject Image;
     Vector3 startPosition;
     Transform startParent;
     Transform dragParent;
+    private RectTransform rectTransform;
        //Dragable object is marked with tag "DragParent"
     void Start()
     {
@@ -26,7 +28,7 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 
-            itemDragging.transform.position.z ));
+        itemDragging.transform.position.z ));
     }
 
     public void OnEndDrag(PointerEventData eventData) //Change position of draggable object

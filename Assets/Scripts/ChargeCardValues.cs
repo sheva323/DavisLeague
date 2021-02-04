@@ -15,12 +15,32 @@ public class ChargeCardValues : MonoBehaviour
     public TextMeshProUGUI ScoreSlot2;
     public TextMeshProUGUI ScoreSlot3;
     public TextMeshProUGUI ScoreSlot4;
+    public GameObject Sevens0;
+    public GameObject Sevens1;
+    public GameObject Sevens2;
+    public GameObject Sevens3;
+    public GameObject Sevens4;
+    public GameObject Sevens5;
+    public GameObject Sevens6;
+    public GameObject Sevens7;
+    public GameObject Sevens8;
+    public GameObject Sevens9;
 
 
     private void Start()
     {
         CardValue();
         ScoreSlotValue();
+        Destroy(Sevens0, 2f);
+        Destroy(Sevens1, 4f);
+        Destroy(Sevens2, 6f);
+        Destroy(Sevens3, 8f);
+        Destroy(Sevens4, 10f);
+        Destroy(Sevens5, 2f);
+        Destroy(Sevens6, 4f);
+        Destroy(Sevens7, 6f);
+        Destroy(Sevens8, 8f);
+        Destroy(Sevens9, 10f);
     }
     public void Awake()
     {

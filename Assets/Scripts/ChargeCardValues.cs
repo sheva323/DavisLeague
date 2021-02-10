@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ChargeCardValues : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class ChargeCardValues : MonoBehaviour
     public TextMeshProUGUI ScoreSlot7;
     public TextMeshProUGUI ScoreSlot8;
     public TextMeshProUGUI ScoreSlot9;
+    public TextMeshProUGUI PlayerScore;
+    public TextMeshProUGUI CPUScore;
+    public GameObject PoolGamePosition;
     public GameObject Sevens0;
     public GameObject Sevens1;
     public GameObject Sevens2;
@@ -30,12 +34,314 @@ public class ChargeCardValues : MonoBehaviour
     public GameObject Sevens7;
     public GameObject Sevens8;
     public GameObject Sevens9;
+    public GameObject SlotsPlayer;
+    public GameObject SlotsCPU;
+    public GameObject Round1End;
+    public GameObject Round2End;
+    public GameObject Round3End;
+    public GameObject Round4End;
+    public GameObject StaticBall1Player1;
+    public GameObject StaticBall2Player1;
+    public GameObject StaticBall3Player1;
+    public GameObject StaticBall1CPU;
+    public GameObject StaticBall2CPU;
+    public GameObject StaticBall3CPU;
+    public Animator Ball1Player1Animator;
+    public Animator Ball2Player1Animator;
+    public Animator Ball3Player1Animator;
+    public Animator Ball4Player1Animator;
+    public Animator Ball1CPUAminator;
+    public Animator Ball2CPUAminator;
+    public Animator Ball3CPUAminator;
+    public Animator Ball4CPUAminator;
+    GameObject PoolGame;
+    public AudioSource SlotMachine;
+    public AudioSource Sevens;
+    public AudioSource SlotEnd;
 
+    private void Awake()
+    {
+        PoolGame = GameObject.FindGameObjectWithTag("PoolGame");
+        PoolGame.transform.position = (PoolGamePosition.transform.position);
+    }
 
     private void Start()
     {
+        Invoke("PlaySoundSlotMachine", 0.5f);
+        Invoke("PlaySoundSevens", 1.8f);
+        Invoke("PlaySoundSlotEnd", 10.5f); 
         CardValue();
         ScoreSlotValue();
+        if (PlayerPrefs.GetInt("BattleNumber") == 1)
+        {
+            Round1End.SetActive(true);
+            if (PlayerPrefs.GetInt("ScorePlayer1") > PlayerPrefs.GetInt("ScoreCPU"))
+            {
+                PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle1", 1);
+            }
+            if (PlayerPrefs.GetInt("ScorePlayer1") < PlayerPrefs.GetInt("ScoreCPU"))
+            {
+                PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle1", 1);
+            }
+        }
+        if (PlayerPrefs.GetInt("BattleNumber") == 2)
+        {
+            Round2End.SetActive(true);
+            if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1") == 1)
+            {
+                StaticBall1Player1.SetActive(true); //Activates ball image to show player has won 1 battle before
+            }
+            if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle1") == 1)
+            {
+                StaticBall1CPU.SetActive(true); //Activates ball image to show player has won 1 battle before
+            }
+
+            if (PlayerPrefs.GetInt("ScorePlayer1") > PlayerPrefs.GetInt("ScoreCPU"))
+            {
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1") == 0)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle2", 1);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1") == 1)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle2", 2);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle1") == 0)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle2", 0);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle1") == 1)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle2", 1);
+                }
+            }
+            if (PlayerPrefs.GetInt("ScorePlayer1") < PlayerPrefs.GetInt("ScoreCPU"))
+            {
+                if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle1") == 0)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle2", 1);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle1") == 1)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle2", 2);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1") == 0)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle2", 0);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1") == 1)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle2", 1);
+                }
+            }
+            if (PlayerPrefs.GetInt("ScorePlayer1") == PlayerPrefs.GetInt("ScoreCPU"))
+            {
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1") == 0)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle2", 1);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1") == 1)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle2", 2);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle1") == 0)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle2", 1);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle1") == 1)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle2", 2);
+                }
+            }
+        }
+        if (PlayerPrefs.GetInt("BattleNumber") == 3)
+        {
+            Round3End.SetActive(true);
+            if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") == 1)
+            {
+                StaticBall1Player1.SetActive(true); //Activates ball image to show player has won 1 battle before
+            }
+            if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") == 2)
+            {
+                StaticBall1Player1.SetActive(true); 
+                StaticBall2Player1.SetActive(true); 
+            }
+            if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2") == 1)
+            {
+                StaticBall1CPU.SetActive(true); //Activates ball image to show CPU has won 1 battle before
+            }
+            if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2") == 2)
+            {
+                StaticBall1CPU.SetActive(true);
+                StaticBall2CPU.SetActive(true);
+            }
+
+            if (PlayerPrefs.GetInt("ScorePlayer1") > PlayerPrefs.GetInt("ScoreCPU"))
+            {
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") == 0)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle3", 1);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") == 1)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle3", 2);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") == 2)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle3", 3);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2") == 0)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle3", 0);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2") == 1)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle3", 1);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2") == 2)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle3", 2);
+                }
+            }
+            if (PlayerPrefs.GetInt("ScorePlayer1") < PlayerPrefs.GetInt("ScoreCPU"))
+            {
+                if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2") == 0)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle3", 1);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2") == 1)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle3", 2);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2") == 2)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle3", 3);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") == 0)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle3", 0);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") == 1)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle3", 1);
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") == 2)
+                {
+                    PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle3", 2);
+                }
+            }
+        }
+        if (PlayerPrefs.GetInt("BattleNumber") == 4)
+        {
+            Round4End.SetActive(true);
+            Debug.Log(PlayerPrefs.GetInt("ScorePlayer1"));
+            Debug.Log(PlayerPrefs.GetInt("ScoreCPU"));
+            Debug.Log(PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3"));
+            Debug.Log(PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3"));
+            if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 1)
+                {
+                    StaticBall1Player1.SetActive(true); //Activates ball image to show player has won 1 battle before
+                }
+            if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 2)
+                {
+                    StaticBall1Player1.SetActive(true);
+                    StaticBall2Player1.SetActive(true);
+                }
+            if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 3)
+                {
+                    StaticBall1Player1.SetActive(true);
+                    StaticBall2Player1.SetActive(true);
+                    StaticBall3Player1.SetActive(true);
+                }
+            if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 1)
+                {
+                    StaticBall1CPU.SetActive(true); //Activates ball image to show CPU has won 1 battle before
+                }
+            if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 2)
+                {
+                    StaticBall1CPU.SetActive(true);
+                    StaticBall2CPU.SetActive(true);
+                }
+            if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 3)
+                {
+                    StaticBall1CPU.SetActive(true);
+                    StaticBall2CPU.SetActive(true);
+                    StaticBall3CPU.SetActive(true);
+                }
+
+            if (PlayerPrefs.GetInt("ScorePlayer1") > PlayerPrefs.GetInt("ScoreCPU"))
+                {
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 0)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle4", 1);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 1)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle4", 2);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 2)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle4", 3);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 3)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle4", 4);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 0)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle4", 0);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 1)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle4", 1);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 2)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle4", 2);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 3)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle4", 3);
+                    }
+                if (PlayerPrefs.GetInt("ScorePlayer1") < PlayerPrefs.GetInt("ScoreCPU"))
+                {
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 0)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle4", 1);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 1)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle4", 2);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 2)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle4", 3);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 3)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle4", 4);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 0)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle4", 0);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 1)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle4", 1);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 2)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle4", 2);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 3)
+                    {
+                        PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle4", 3);
+                    }
+                }
+            }
+                Debug.Log(PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle4"));
+                Debug.Log(PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle4"));
+        }
         Destroy(Sevens0, 2f);
         Destroy(Sevens1, 4f);
         Destroy(Sevens2, 6f);
@@ -46,6 +352,37 @@ public class ChargeCardValues : MonoBehaviour
         Destroy(Sevens7, 6f);
         Destroy(Sevens8, 8f);
         Destroy(Sevens9, 10f);
+        Destroy(SlotsPlayer, 10.5f);
+        Destroy(SlotsCPU, 10.5f);
+        Destroy(Round1End, 15f);
+        Destroy(Round2End, 15f);
+        Destroy(Round3End, 15f);
+        Destroy(Round4End, 15f);
+    }
+
+
+    private void Update()
+    {
+        AnimationActivator();
+        SceneSelecterCardsBack();
+        if (SlotsPlayer == null)
+        {
+            SlotMachine.Stop();
+            Sevens.Stop();
+        }
+    }
+
+    void PlaySoundSlotMachine()
+    {
+        SlotMachine.Play();
+    }
+    void PlaySoundSevens()
+    {
+        Sevens.Play();
+    }
+    void PlaySoundSlotEnd()
+    {
+        SlotEnd.Play();
     }
     public void CardValue()
     {
@@ -179,6 +516,10 @@ public class ChargeCardValues : MonoBehaviour
             CopiedCards[4] = Instantiate(OriginalCards[5], Slots[4].parent);
         }
 
+        PlayerScore.text = (PlayerPrefs.GetInt("Value0") + PlayerPrefs.GetInt("Value1") + PlayerPrefs.GetInt("Value2") + PlayerPrefs.GetInt("Value3") 
+            + PlayerPrefs.GetInt("Value4")).ToString();
+        PlayerPrefs.SetInt("ScorePlayer1", (PlayerPrefs.GetInt("Value0") + PlayerPrefs.GetInt("Value1") + PlayerPrefs.GetInt("Value2") + PlayerPrefs.GetInt("Value3")
+            + PlayerPrefs.GetInt("Value4")));
     }
 
     public void ScoreSlotValue()
@@ -198,6 +539,7 @@ public class ChargeCardValues : MonoBehaviour
         {
             int ValueScoreSlot5 = Random.Range(40, 56);
             ScoreSlot5.text = ValueScoreSlot5.ToString();
+            PlayerPrefs.SetInt("Value5", ValueScoreSlot5);
             if (ValueScoreSlot5 <= 55 && ValueScoreSlot5 >= 50) //SuperStar
             {
                 CopiedCards[5] = Instantiate(OriginalCards[0], Slots[5].parent);
@@ -225,8 +567,9 @@ public class ChargeCardValues : MonoBehaviour
         }
         if (ValueScoreSlot0 <= 39 && ValueScoreSlot0 >= 20)
         {
-            int ValueScoreSlot5 = Random.Range(10, 50);
+            int ValueScoreSlot5 = Random.Range(10, 45);
             ScoreSlot5.text = ValueScoreSlot5.ToString();
+            PlayerPrefs.SetInt("Value5", ValueScoreSlot5);
             if (ValueScoreSlot5 <= 55 && ValueScoreSlot5 >= 50) //SuperStar
             {
                 CopiedCards[5] = Instantiate(OriginalCards[0], Slots[5].parent);
@@ -254,8 +597,9 @@ public class ChargeCardValues : MonoBehaviour
         }
         if (ValueScoreSlot0 <= 19 && ValueScoreSlot0 >= 1)
         {
-            int ValueScoreSlot5 = Random.Range(10, 40);
+            int ValueScoreSlot5 = Random.Range(10, 30);
             ScoreSlot5.text = ValueScoreSlot5.ToString();
+            PlayerPrefs.SetInt("Value5", ValueScoreSlot5);
             if (ValueScoreSlot5 <= 55 && ValueScoreSlot5 >= 50) //SuperStar
             {
                 CopiedCards[5] = Instantiate(OriginalCards[0], Slots[5].parent);
@@ -286,6 +630,7 @@ public class ChargeCardValues : MonoBehaviour
         {
             int ValueScoreSlot6 = Random.Range(40, 56);
             ScoreSlot6.text = ValueScoreSlot6.ToString();
+            PlayerPrefs.SetInt("Value6", ValueScoreSlot6);
             if (ValueScoreSlot6 <= 55 && ValueScoreSlot6 >= 50) //SuperStar
             {
                 CopiedCards[6] = Instantiate(OriginalCards[0], Slots[6].parent);
@@ -313,8 +658,9 @@ public class ChargeCardValues : MonoBehaviour
         }
         if (ValueScoreSlot1 <= 39 && ValueScoreSlot1 >= 20)
         {
-            int ValueScoreSlot6 = Random.Range(10, 49);
+            int ValueScoreSlot6 = Random.Range(10, 45);
             ScoreSlot6.text = ValueScoreSlot6.ToString();
+            PlayerPrefs.SetInt("Value6", ValueScoreSlot6);
             if (ValueScoreSlot6 <= 55 && ValueScoreSlot6 >= 50) //SuperStar
             {
                 CopiedCards[6] = Instantiate(OriginalCards[0], Slots[6].parent);
@@ -342,8 +688,9 @@ public class ChargeCardValues : MonoBehaviour
         }
         if (ValueScoreSlot1 <= 19 && ValueScoreSlot1 >= 1)
         {
-            int ValueScoreSlot6 = Random.Range(10, 39);
+            int ValueScoreSlot6 = Random.Range(10, 30);
             ScoreSlot6.text = ValueScoreSlot6.ToString();
+            PlayerPrefs.SetInt("Value6", ValueScoreSlot6);
             if (ValueScoreSlot6 <= 55 && ValueScoreSlot6 >= 50) //SuperStar
             {
                 CopiedCards[6] = Instantiate(OriginalCards[0], Slots[6].parent);
@@ -374,6 +721,7 @@ public class ChargeCardValues : MonoBehaviour
         {
             int ValueScoreSlot7 = Random.Range(40, 56);
             ScoreSlot7.text = ValueScoreSlot7.ToString();
+            PlayerPrefs.SetInt("Value7", ValueScoreSlot7);
             if (ValueScoreSlot7 <= 55 && ValueScoreSlot7 >= 50) //SuperStar
             {
                 CopiedCards[7] = Instantiate(OriginalCards[0], Slots[7].parent);
@@ -401,8 +749,9 @@ public class ChargeCardValues : MonoBehaviour
         }
         if (ValueScoreSlot2 <= 39 && ValueScoreSlot2 >= 20)
         {
-            int ValueScoreSlot7 = Random.Range(10, 49);
+            int ValueScoreSlot7 = Random.Range(10, 45);
             ScoreSlot7.text = ValueScoreSlot7.ToString();
+            PlayerPrefs.SetInt("Value7", ValueScoreSlot7);
             if (ValueScoreSlot7 <= 55 && ValueScoreSlot7 >= 50) //SuperStar
             {
                 CopiedCards[7] = Instantiate(OriginalCards[0], Slots[7].parent);
@@ -430,8 +779,9 @@ public class ChargeCardValues : MonoBehaviour
         }
         if (ValueScoreSlot2 <= 19 && ValueScoreSlot2 >= 1)
         {
-            int ValueScoreSlot7 = Random.Range(10, 39);
+            int ValueScoreSlot7 = Random.Range(10, 30);
             ScoreSlot7.text = ValueScoreSlot7.ToString();
+            PlayerPrefs.SetInt("Value7", ValueScoreSlot7);
             if (ValueScoreSlot7 <= 55 && ValueScoreSlot7 >= 50) //SuperStar
             {
                 CopiedCards[7] = Instantiate(OriginalCards[0], Slots[7].parent);
@@ -462,6 +812,7 @@ public class ChargeCardValues : MonoBehaviour
         {
             int ValueScoreSlot8 = Random.Range(40, 56);
             ScoreSlot8.text = ValueScoreSlot8.ToString();
+            PlayerPrefs.SetInt("Value8", ValueScoreSlot8);
             if (ValueScoreSlot8 <= 55 && ValueScoreSlot8 >= 50) //SuperStar
             {
                 CopiedCards[8] = Instantiate(OriginalCards[0], Slots[8].parent);
@@ -489,8 +840,9 @@ public class ChargeCardValues : MonoBehaviour
         }
         if (ValueScoreSlot3 <= 39 && ValueScoreSlot3 >= 20)
         {
-            int ValueScoreSlot8 = Random.Range(10, 49);
+            int ValueScoreSlot8 = Random.Range(10, 45);
             ScoreSlot8.text = ValueScoreSlot8.ToString();
+            PlayerPrefs.SetInt("Value8", ValueScoreSlot8);
             if (ValueScoreSlot8 <= 55 && ValueScoreSlot8 >= 50) //SuperStar
             {
                 CopiedCards[8] = Instantiate(OriginalCards[0], Slots[8].parent);
@@ -518,8 +870,9 @@ public class ChargeCardValues : MonoBehaviour
         }
         if (ValueScoreSlot3 <= 19 && ValueScoreSlot3 >= 1)
         {
-            int ValueScoreSlot8 = Random.Range(10, 39);
+            int ValueScoreSlot8 = Random.Range(10, 30);
             ScoreSlot8.text = ValueScoreSlot8.ToString();
+            PlayerPrefs.SetInt("Value8", ValueScoreSlot8);
             if (ValueScoreSlot8 <= 55 && ValueScoreSlot8 >= 50) //SuperStar
             {
                 CopiedCards[8] = Instantiate(OriginalCards[0], Slots[8].parent);
@@ -550,6 +903,7 @@ public class ChargeCardValues : MonoBehaviour
         {
             int ValueScoreSlot9 = Random.Range(40, 56);
             ScoreSlot9.text = ValueScoreSlot9.ToString();
+            PlayerPrefs.SetInt("Value9", ValueScoreSlot9);
             if (ValueScoreSlot9 <= 55 && ValueScoreSlot9 >= 50) //SuperStar
             {
                 CopiedCards[9] = Instantiate(OriginalCards[0], Slots[9].parent);
@@ -577,8 +931,9 @@ public class ChargeCardValues : MonoBehaviour
         }
         if (ValueScoreSlot4 <= 39 && ValueScoreSlot4 >= 20)
         {
-            int ValueScoreSlot9 = Random.Range(10, 49);
+            int ValueScoreSlot9 = Random.Range(10, 45);
             ScoreSlot9.text = ValueScoreSlot9.ToString();
+            PlayerPrefs.SetInt("Value9", ValueScoreSlot9);
             if (ValueScoreSlot9 <= 55 && ValueScoreSlot9 >= 50) //SuperStar
             {
                 CopiedCards[9] = Instantiate(OriginalCards[0], Slots[9].parent);
@@ -606,8 +961,9 @@ public class ChargeCardValues : MonoBehaviour
         }
         if (ValueScoreSlot4 <= 19 && ValueScoreSlot4 >= 1)
         {
-            int ValueScoreSlot9 = Random.Range(10, 39);
+            int ValueScoreSlot9 = Random.Range(10, 30);
             ScoreSlot9.text = ValueScoreSlot9.ToString();
+            PlayerPrefs.SetInt("Value9", ValueScoreSlot9);
             if (ValueScoreSlot9 <= 55 && ValueScoreSlot9 >= 50) //SuperStar
             {
                 CopiedCards[9] = Instantiate(OriginalCards[0], Slots[9].parent);
@@ -631,6 +987,206 @@ public class ChargeCardValues : MonoBehaviour
             if (ValueScoreSlot9 <= 9 && ValueScoreSlot9 >= 1) //Benchwarmer
             {
                 CopiedCards[9] = Instantiate(OriginalCards[5], Slots[9].parent);
+            }
+        }
+
+        CPUScore.text = (PlayerPrefs.GetInt("Value5") + PlayerPrefs.GetInt("Value6") + PlayerPrefs.GetInt("Value7") + PlayerPrefs.GetInt("Value8")
+            + PlayerPrefs.GetInt("Value9")).ToString();
+        PlayerPrefs.SetInt("ScoreCPU", (PlayerPrefs.GetInt("Value5") + PlayerPrefs.GetInt("Value6") + PlayerPrefs.GetInt("Value7") + PlayerPrefs.GetInt("Value8")
+            + PlayerPrefs.GetInt("Value9")));
+    }
+
+    public void AnimationActivator() // FUNCTION TO ACTIVATE BASKETBALL ANIMATIONS WHEN WIN BATTLE
+    {
+        if (SlotsCPU == null)
+        {
+            if (PlayerPrefs.GetInt("BattleNumber") == 1)
+            {
+                if (PlayerPrefs.GetInt("ScorePlayer1") > PlayerPrefs.GetInt("ScoreCPU"))
+                {
+                    Ball1Player1Animator.SetBool("ActivateBallPlayer1", true);
+                }
+                else if (PlayerPrefs.GetInt("ScorePlayer1") < PlayerPrefs.GetInt("ScoreCPU"))
+                {
+                    Ball1CPUAminator.SetBool("ActivateBallCPU", true);
+                }
+                else
+                {
+                    Ball1Player1Animator.SetBool("ActivateBallPlayer1", true);
+                    Ball1CPUAminator.SetBool("ActivateBallCPU", true);
+                }
+            }
+
+            if (PlayerPrefs.GetInt("BattleNumber") == 2) //When battle 2 starts
+            {
+                if (PlayerPrefs.GetInt("ScorePlayer1") > PlayerPrefs.GetInt("ScoreCPU"))
+                {
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1") == 0)
+                    {
+                        Ball1Player1Animator.SetBool("ActivateBallPlayer1", true);
+                    } 
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1") == 1)
+                    {
+                        Ball2Player1Animator.SetBool("ActivateBall1Player1", true);
+                    }
+                }
+                if (PlayerPrefs.GetInt("ScorePlayer1") < PlayerPrefs.GetInt("ScoreCPU"))
+                {
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle1") == 0)
+                    {
+                        Ball1CPUAminator.SetBool("ActivateBallCPU", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle1") == 1)
+                    {
+                        Ball2CPUAminator.SetBool("ActivateBall1CPU", true);
+                    }
+                }
+                if (PlayerPrefs.GetInt("ScorePlayer1") == PlayerPrefs.GetInt("ScoreCPU"))
+                {
+                    
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1") == 0)
+                    {
+                        Ball1Player1Animator.SetBool("ActivateBallPlayer1", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1") == 1)
+                    {
+                        Ball2Player1Animator.SetBool("ActivateBall1Player1", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle1") == 0)
+                    {
+                        Ball1CPUAminator.SetBool("ActivateBallCPU", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle1") == 1)
+                    {
+                        Ball2CPUAminator.SetBool("ActivateBall1CPU", true);
+                    }
+                    
+                }
+
+            }
+            if (PlayerPrefs.GetInt("BattleNumber") == 3)
+            {
+                if (PlayerPrefs.GetInt("ScorePlayer1") > PlayerPrefs.GetInt("ScoreCPU"))
+                {
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") == 0)
+                    {
+                        Ball1Player1Animator.SetBool("ActivateBallPlayer1", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") == 1)
+                    {
+                        Ball2Player1Animator.SetBool("ActivateBall1Player1", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") == 2)
+                    {
+                        Ball3Player1Animator.SetBool("ActivateBall2Player1", true);
+                    }
+                }
+                if (PlayerPrefs.GetInt("ScorePlayer1") < PlayerPrefs.GetInt("ScoreCPU"))
+                {
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2") == 0)
+                    {
+                        Ball1CPUAminator.SetBool("ActivateBallCPU", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2") == 1)
+                    {
+                        Ball2CPUAminator.SetBool("ActivateBall1CPU", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2") == 2)
+                    {
+                        Ball3CPUAminator.SetBool("ActivateBall2CPU", true);
+                    }
+                }
+                if (PlayerPrefs.GetInt("ScorePlayer1") == PlayerPrefs.GetInt("ScoreCPU"))
+                {
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") == 0)
+                    {
+                        Ball1Player1Animator.SetBool("ActivateBallPlayer1", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") == 1)
+                    {
+                        Ball2Player1Animator.SetBool("ActivateBall1Player1", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") == 2)
+                    {
+                        Ball3Player1Animator.SetBool("ActivateBall2Player1", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2") == 0)
+                    {
+                        Ball1CPUAminator.SetBool("ActivateBallCPU", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2") == 1)
+                    {
+                        Ball2CPUAminator.SetBool("ActivateBall1CPU", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2") == 2)
+                    {
+                        Ball3CPUAminator.SetBool("ActivateBall2CPU", true);
+                    }
+                }
+            }
+            if (PlayerPrefs.GetInt("BattleNumber") == 4)
+            {
+                if (PlayerPrefs.GetInt("ScorePlayer1") > PlayerPrefs.GetInt("ScoreCPU"))
+                    {
+                        if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 0)
+                        {
+                            Ball1Player1Animator.SetBool("ActivateBallPlayer1", true);
+                        }
+                        if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 1)
+                        {
+                            Ball2Player1Animator.SetBool("ActivateBall1Player1", true);
+                        }
+                        if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 2)
+                        {
+                            Ball3Player1Animator.SetBool("ActivateBall2Player1", true);
+                        }
+                        if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 3)
+                        {
+                            Ball4Player1Animator.SetBool("ActivateBall3Player1", true);
+                        }
+                    }
+                if (PlayerPrefs.GetInt("ScorePlayer1") < PlayerPrefs.GetInt("ScoreCPU"))
+                    {
+                        if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 0)
+                        {
+                            Ball1CPUAminator.SetBool("ActivateBallCPU", true);
+                        }
+                        if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 1)
+                        {
+                            Ball2CPUAminator.SetBool("ActivateBall1CPU", true);
+                        }
+                        if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 2)
+                        {
+                            Ball3CPUAminator.SetBool("ActivateBall2CPU", true);
+                        }
+                        if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 3)
+                        {
+                            Ball4CPUAminator.SetBool("ActivateBall3CPU", true);
+                        }
+                    }
+            }
+        }
+    }
+
+    public void SceneSelecterCardsBack()
+    {
+        if (Round1End == null)
+        {
+            if (PlayerPrefs.GetInt("BattleNumber") == 1)
+            {
+                SceneManager.LoadScene(2); //A1. Main Screen
+            }
+            if (PlayerPrefs.GetInt("BattleNumber") == 2)
+            {
+                SceneManager.LoadScene(2); //A1. Main Screen
+            }
+            if (PlayerPrefs.GetInt("BattleNumber") == 3)
+            {
+                SceneManager.LoadScene(2); //A1. Main Screen
+            }
+            if (PlayerPrefs.GetInt("BattleNumber") == 4)
+            {
+                SceneManager.LoadScene(4); //A1. Main Screen
             }
         }
     }

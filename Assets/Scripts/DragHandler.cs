@@ -41,5 +41,4 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
                 transform.SetParent(startParent);
             }
     }
-
 }

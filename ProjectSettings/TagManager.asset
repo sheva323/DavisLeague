@@ -11,6 +11,8 @@ TagManager:
   - superstar
   - roleplayer2
   - roleplayer3
+  - PoolGame
+  - EndEscene
   layers:
   - Default
   - TransparentFX

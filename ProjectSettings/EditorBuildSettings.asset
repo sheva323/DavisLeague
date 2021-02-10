@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/A2. Card Screen.unity
     guid: fdd4c7c5e0a9ff34dad1dd90a5d559b3
   - enabled: 1
-    path: Assets/Scenes/A3.Battle Screen.unity
-    guid: a093ed551cdef55499ee451ac75e4ae4
+    path: Assets/Scenes/A3. WinLosePage.unity
+    guid: cf96beaaf1412264a8bb5f1455121ca2
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

@@ -9,7 +9,12 @@ public class DropSlot : MonoBehaviour, IDropHandler
     public int Cardvalue;
     public int SlotIndex;
     public string ValueArray;
-    // Start is called before the first frame update
+
+
+    private void Start()
+    {
+        item = null;
+    }
 
     public void OnDrop(PointerEventData eventData)
     { 

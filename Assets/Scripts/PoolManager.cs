@@ -115,7 +115,7 @@ public class PoolManager : MonoBehaviour
                 {
                     Dummy[i].GetComponentsInChildren<ParticleSystem>()[1].Stop();
                     Dummy[i].GetComponentsInChildren<ParticleSystem>()[0].Play();
-                    SuperStarAnimation.SetBool("ActivateSuperStarAnimation", true);
+                    //SuperStarAnimation.SetBool("ActivateSuperStarAnimation", true);
                 }
 
                 index++;

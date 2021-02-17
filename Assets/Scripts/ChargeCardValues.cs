@@ -1178,11 +1178,11 @@ public class ChargeCardValues : MonoBehaviour
             }
             if (PlayerPrefs.GetInt("BattleNumber") == 2)
             {
-                SceneManager.LoadScene(2); //A1. Main Screen
+                SceneManager.LoadScene(4); //A1. Main Screen
             }
             if (PlayerPrefs.GetInt("BattleNumber") == 3)
             {
-                SceneManager.LoadScene(2); //A1. Main Screen
+                SceneManager.LoadScene(4); //A1. Main Screen
             }
             if (PlayerPrefs.GetInt("BattleNumber") == 4)
             {

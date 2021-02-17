@@ -30,6 +30,7 @@ public class PoolManager : MonoBehaviour
     {
         PoolGame = GameObject.FindGameObjectWithTag("PoolGame");
         PoolGame.SetActive(true);
+        PlayerPrefs.SetInt("SuperStarAnimation", 0);
     }
     
     void Start()
@@ -61,11 +62,42 @@ public class PoolManager : MonoBehaviour
 
     public void Update()
     {
+        if (index != (Dummy.Length))
+        {
+            if (PlayerPrefs.GetInt("SuperStarAnimation") == 2)
+            {
+                SuperStarAnimation.SetBool("ActivateSuperStarAnimation", false);
+                canmove = true;
+                if (index == (Dummy.Length))
+                {
+                    canmove = false;
+                }
+            }
+            if (PlayerPrefs.GetInt("SuperStarAnimation") == 1)
+            {
+                canmove = false;
+
+            }
+        }
+        if (index == (Dummy.Length))
+        {
+            if (PlayerPrefs.GetInt("SuperStarAnimation") == 2)
+            {
+                SuperStarAnimation.SetBool("ActivateSuperStarAnimation", false);
+                canmove = false;
+                CardsPanel.transform.position = PoolGamePanel.transform.position;
+                PoolGamePanel.SetActive(false);
+                DummyTotal.SetActive(false);
+            }
+            if (PlayerPrefs.GetInt("SuperStarAnimation") == 1)
+            {
+                canmove = false;
+            }
+        }
         if (canmove)
         {
             GetCards(index);
         }
-        
     }
 
     public void SoundCards()
@@ -78,6 +110,10 @@ public class PoolManager : MonoBehaviour
 
     public void GetCards(int i)
     {
+        if (index == (Dummy.Length))
+        {
+            canmove = false;
+        }
         GetYourHand.gameObject.SetActive(false);
         Vector2 CardPositionNew = PreviewPosition[i].transform.position - Dummy[i].transform.position;
         {
@@ -105,19 +141,12 @@ public class PoolManager : MonoBehaviour
                         Dummy[index].GetComponentsInChildren<ParticleSystem>()[0].Play();
                     }
                     canmove = false;
-
-                    CardsPanel.transform.position = PoolGamePanel.transform.position;
-
-                    PoolGamePanel.SetActive(false);
-                    DummyTotal.SetActive(false);
                 }
-                else if (cardsRandom[i].gameObject.CompareTag("superstar"))
+                if (cardsRandom[i].gameObject.CompareTag("superstar"))
                 {
                     Dummy[i].GetComponentsInChildren<ParticleSystem>()[1].Stop();
                     Dummy[i].GetComponentsInChildren<ParticleSystem>()[0].Play();
-                    //SuperStarAnimation.SetBool("ActivateSuperStarAnimation", true);
                 }
-
                 index++;
                 CardSound.Play();
                 if (index == Dummy.Length)
@@ -131,7 +160,10 @@ public class PoolManager : MonoBehaviour
                         SuperStarSound.Play();
                     }
                 }
-
+                if (cardsRandom[i].gameObject.CompareTag("superstar"))
+                {
+                    SuperStarAnimation.SetBool("ActivateSuperStarAnimation", true);
+                }
             }
         }
     }

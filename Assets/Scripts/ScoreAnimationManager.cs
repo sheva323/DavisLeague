@@ -46,13 +46,30 @@ public class ScoreAnimationManager : MonoBehaviour
             }
             if (PlayerPrefs.GetInt("BattleNumber") == 4)
             {
-                SceneManager.LoadScene(0); //A0. Intro
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle4")> PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle4"))
+                {
+                    SceneManager.LoadScene(5); //winner
+                }
+                else
+                {
+                    SceneManager.LoadScene(6); //Looser
+                }
             }
         }
     }
 
     void ScoreManager ()
     {
+        print(PlayerPrefs.GetInt("BattleNumber"));
+        print(PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1"));
+        print(PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle1"));
+        print(PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2"));
+        print(PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2"));
+        print(PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3"));
+        print(PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3"));
+        print(PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle4"));
+        print(PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle4"));
+
         if (PlayerPrefs.GetInt("BattleNumber") == 1)
         {
            if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1")==1)

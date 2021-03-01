@@ -14,7 +14,6 @@ public class DontDestroy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
     }

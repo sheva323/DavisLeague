@@ -37,6 +37,7 @@ public class PoolManager : MonoBehaviour
     //This script creates 20 random cards Between AllStar, Superstar, Roleplayer, Bencharmer. Creates a copy of 4 Prefabs cards
     //Storage them in PoolGame (Scene A1)
     {
+        
         index = 0;
         for (int i = 0; i < 20; i++)
         {
@@ -86,12 +87,13 @@ public class PoolManager : MonoBehaviour
                 SuperStarAnimation.SetBool("ActivateSuperStarAnimation", false);
                 canmove = false;
                 CardsPanel.transform.position = PoolGamePanel.transform.position;
-                PoolGamePanel.SetActive(false);
+                //PoolGamePanel.SetActive(false);
                 DummyTotal.SetActive(false);
             }
             if (PlayerPrefs.GetInt("SuperStarAnimation") == 1)
             {
                 canmove = false;
+                CardsPanel.transform.position = PoolGamePanel.transform.position;
             }
         }
         if (canmove)

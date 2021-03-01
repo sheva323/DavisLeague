@@ -20,7 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/A3. WinLosePage.unity
     guid: cf96beaaf1412264a8bb5f1455121ca2
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/A4.PostGameScreen.unity
+    guid: b6e088687d193144d8732a1499cedeff
+  - enabled: 1
+    path: Assets/Scenes/A4.PostGameScreenLoser.unity
+    guid: b2c0cb1f07a7ffb44a8bbeeb1b748af4
   m_configObjects: {}

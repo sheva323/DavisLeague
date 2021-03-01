@@ -13,6 +13,7 @@ TagManager:
   - roleplayer3
   - PoolGame
   - EndEscene
+  - audiosource
   layers:
   - Default
   - TransparentFX

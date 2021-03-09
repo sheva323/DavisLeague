@@ -70,13 +70,554 @@ public class ChargeCardValues : MonoBehaviour
     public AudioSource SlotEnd;
     public AudioSource Crow;
     public AudioSource Aww;
+    public int PointsSlot0;
+    public int PointsSlot1;
+    public int PointsSlot2;
+    public int PointsSlot3;
+    public int PointsSlot4;
+
+
 
     private void Awake()
     {
+        // Slot0
+        if (PlayerPrefs.GetString("Tag0") == "superstar")
+        {
+            int i = Random.Range(0, 3);
+            if (i== 0)
+            {
+                PointsSlot0 = Random.Range(10, 16);
+            }
+            else
+            {
+                PointsSlot0 = Random.Range(25, 36);
+            }
+            if (PointsSlot0 >= 25)
+            {
+                Invoke("PlayCrowSound", 2f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 2f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag0") == "allstar")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot0 = Random.Range(7, 11);
+            }
+            else
+            {
+                PointsSlot0 = Random.Range(15, 28);
+            }
+            if (PointsSlot0 >= 15)
+            {
+                Invoke("PlayCrowSound", 2f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 2f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag0") == "roleplayer")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot0 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot0 = Random.Range(7, 16);
+            }
+            if (PointsSlot0 >= 7)
+            {
+                Invoke("PlayCrowSound", 2f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 2f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag0") == "roleplayer2")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot0 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot0 = Random.Range(7, 16);
+            }
+            if (PointsSlot0 >= 7)
+            {
+                Invoke("PlayCrowSound", 2f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 2f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag0") == "roleplayer3")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot0 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot0 = Random.Range(7, 16);
+            }
+            if (PointsSlot0 >= 7)
+            {
+                Invoke("PlayCrowSound", 2f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 2f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag0") == "benchwarmer")
+        {
+            PointsSlot0 = Random.Range(2, 7);
+            Invoke("PlayAwwSound", 2f);
+        }
+        //Slot1
+        if (PlayerPrefs.GetString("Tag1") == "superstar")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot1 = Random.Range(10, 16);
+            }
+            else
+            {
+                PointsSlot1 = Random.Range(25, 36);
+            }
+            if (PointsSlot1 >= 25)
+            {
+                Invoke("PlayCrowSound", 4f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 4f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag1") == "allstar")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot1 = Random.Range(7, 11);
+            }
+            else
+            {
+                PointsSlot1 = Random.Range(15, 28);
+            }
+            if (PointsSlot1 >= 15)
+            {
+                Invoke("PlayCrowSound", 4f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 4f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag1") == "roleplayer")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot1 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot1 = Random.Range(7, 16);
+            }
+            if (PointsSlot1 >= 7)
+            {
+                Invoke("PlayCrowSound", 4f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 4f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag1") == "roleplayer2")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot1 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot1 = Random.Range(7, 16);
+            }
+            if (PointsSlot1 >= 7)
+            {
+                Invoke("PlayCrowSound", 4f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 4f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag1") == "roleplayer3")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot1 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot1 = Random.Range(7, 16);
+            }
+            if (PointsSlot1 >= 7)
+            {
+                Invoke("PlayCrowSound", 4f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 4f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag1") == "benchwarmer")
+        {
+            PointsSlot1 = Random.Range(2, 7);
+            Invoke("PlayAwwSound", 4f);
+        }
+        //Slot2
+        if (PlayerPrefs.GetString("Tag2") == "superstar")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot2 = Random.Range(10, 16);
+            }
+            else
+            {
+                PointsSlot2 = Random.Range(25, 36);
+            }
+            if (PointsSlot2 >= 25)
+            {
+                Invoke("PlayCrowSound", 6f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 6f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag2") == "allstar")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot2 = Random.Range(7, 11);
+            }
+            else
+            {
+                PointsSlot2 = Random.Range(15, 28);
+            }
+            if (PointsSlot2 >= 15)
+            {
+                Invoke("PlayCrowSound", 6f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 6f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag2") == "roleplayer")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot2 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot2 = Random.Range(7, 16);
+            }
+            if (PointsSlot2 >= 7)
+            {
+                Invoke("PlayCrowSound", 6f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 6f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag2") == "roleplayer2")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot2 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot2 = Random.Range(7, 16);
+            }
+            if (PointsSlot2 >= 7)
+            {
+                Invoke("PlayCrowSound", 6f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 6f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag2") == "roleplayer3")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot2 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot2 = Random.Range(7, 16);
+            }
+            if (PointsSlot2 >= 7)
+            {
+                Invoke("PlayCrowSound", 6f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 6f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag2") == "benchwarmer")
+        {
+            PointsSlot2 = Random.Range(2, 7);
+            Invoke("PlayAwwSound", 6f);
+        }
+        //Slot3
+        if (PlayerPrefs.GetString("Tag3") == "superstar")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot3 = Random.Range(10, 16);
+            }
+            else
+            {
+                PointsSlot3 = Random.Range(25, 36);
+            }
+            if (PointsSlot3 >= 25)
+            {
+                Invoke("PlayCrowSound", 8f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 8f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag3") == "allstar")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot3 = Random.Range(7, 11);
+            }
+            else
+            {
+                PointsSlot3 = Random.Range(15, 28);
+            }
+            if (PointsSlot3 >= 15)
+            {
+                Invoke("PlayCrowSound", 8f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 8f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag3") == "roleplayer")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot3 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot3 = Random.Range(7, 16);
+            }
+            if (PointsSlot3 >= 7)
+            {
+                Invoke("PlayCrowSound", 8f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 8f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag3") == "roleplayer2")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot3 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot3 = Random.Range(7, 16);
+            }
+            if (PointsSlot3 >= 7)
+            {
+                Invoke("PlayCrowSound", 8f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 8f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag3") == "roleplayer3")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot3 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot3 = Random.Range(7, 16);
+            }
+            if (PointsSlot3 >= 7)
+            {
+                Invoke("PlayCrowSound", 8f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 8f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag3") == "benchwarmer")
+        {
+            PointsSlot3 = Random.Range(2, 7);
+            Invoke("PlayAwwSound", 8f);
+        }
+        //Slot4
+        if (PlayerPrefs.GetString("Tag4") == "superstar")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot4 = Random.Range(10, 16);
+            }
+            else
+            {
+                PointsSlot4 = Random.Range(25, 36);
+            }
+            if (PointsSlot4 >= 25)
+            {
+                Invoke("PlayCrowSound", 10f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 10f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag4") == "allstar")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot4 = Random.Range(7, 11);
+            }
+            else
+            {
+                PointsSlot4 = Random.Range(15, 28);
+            }
+            if (PointsSlot4 >= 15)
+            {
+                Invoke("PlayCrowSound", 10f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 10f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag4") == "roleplayer")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot4 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot4 = Random.Range(7, 16);
+            }
+            if (PointsSlot4 >= 7)
+            {
+                Invoke("PlayCrowSound", 10f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 10f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag4") == "roleplayer2")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot4 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot4 = Random.Range(7, 16);
+            }
+            if (PointsSlot4 >= 7)
+            {
+                Invoke("PlayCrowSound", 10f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 10f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag4") == "roleplayer3")
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                PointsSlot4 = Random.Range(2, 7);
+            }
+            else
+            {
+                PointsSlot4 = Random.Range(7, 16);
+            }
+            if (PointsSlot4 >= 7)
+            {
+                Invoke("PlayCrowSound", 10f);
+            }
+            else
+            {
+                Invoke("PlayAwwSound", 10f);
+            }
+        }
+        if (PlayerPrefs.GetString("Tag4") == "benchwarmer")
+        {
+            PointsSlot4 = Random.Range(2, 7);
+            Invoke("PlayAwwSound", 10f);
+        }
+
         PoolGame = GameObject.FindGameObjectWithTag("PoolGame");
         PoolGame.transform.position = (PoolGamePosition.transform.position);
     }
+    private void CardsPoints()
+    {
 
+    }
     private void Start()
     {
         Invoke("PlaySoundSlotMachine", 0.5f);
@@ -372,46 +913,6 @@ public class ChargeCardValues : MonoBehaviour
         Destroy(Round2End, 15f);
         Destroy(Round3End, 15f);
         Destroy(Round4End, 15f);
-        if (PlayerPrefs.GetInt("Value0") > PlayerPrefs.GetInt("Value5"))
-        {
-            Invoke("PlayCrowSound", 2f);
-        }
-        if (PlayerPrefs.GetInt("Value0") < PlayerPrefs.GetInt("Value5"))
-        {
-            Invoke("PlayAwwSound", 2f);
-        }
-        if (PlayerPrefs.GetInt("Value1") > PlayerPrefs.GetInt("Value6"))
-        {
-            Invoke("PlayCrowSound", 4f);
-        }
-        if (PlayerPrefs.GetInt("Value1") < PlayerPrefs.GetInt("Value6"))
-        {
-            Invoke("PlayAwwSound", 4f);
-        }
-        if (PlayerPrefs.GetInt("Value2") > PlayerPrefs.GetInt("Value7"))
-        {
-            Invoke("PlayCrowSound", 6f);
-        }
-        if (PlayerPrefs.GetInt("Value2") < PlayerPrefs.GetInt("Value7"))
-        {
-            Invoke("PlayAwwSound", 6f);
-        }
-        if (PlayerPrefs.GetInt("Value3") > PlayerPrefs.GetInt("Value8"))
-        {
-            Invoke("PlayCrowSound", 8f);
-        }
-        if (PlayerPrefs.GetInt("Value3") < PlayerPrefs.GetInt("Value8"))
-        {
-            Invoke("PlayAwwSound", 8f);
-        }
-        if (PlayerPrefs.GetInt("Value4") > PlayerPrefs.GetInt("Value9"))
-        {
-            Invoke("PlayCrowSound", 10f);
-        }
-        if (PlayerPrefs.GetInt("Value4") < PlayerPrefs.GetInt("Value9"))
-        {
-            Invoke("PlayAwwSound", 10f);
-        }
     }
 
 
@@ -448,7 +949,7 @@ public class ChargeCardValues : MonoBehaviour
     }
     public void CardValue()
     {
-        // Slot #1
+        // Slot #0
         if (PlayerPrefs.GetInt("Value0") <= 55 && PlayerPrefs.GetInt("Value0") >= 50)//SuperStar
         {
             CopiedCards[0] = Instantiate(OriginalCards[0], Slots[0].parent);
@@ -486,7 +987,7 @@ public class ChargeCardValues : MonoBehaviour
             TextScoreSlot0.GetComponent<TextMeshProUGUI>().color = Color.black;
         }
 
-        // Slot #2
+        // Slot #1
         if (PlayerPrefs.GetInt("Value1") <= 55 && PlayerPrefs.GetInt("Value1") >= 50)//SuperStar
         {
             CopiedCards[1] = Instantiate(OriginalCards[0], Slots[1].parent);
@@ -524,7 +1025,7 @@ public class ChargeCardValues : MonoBehaviour
             TextScoreSlot1.GetComponent<TextMeshProUGUI>().color = Color.black;
         }
 
-        // Slot #3
+        // Slot #2
         if (PlayerPrefs.GetInt("Value2") <= 55 && PlayerPrefs.GetInt("Value2") >= 50)//SuperStar
         {
             CopiedCards[2] = Instantiate(OriginalCards[0], Slots[2].parent);
@@ -562,7 +1063,7 @@ public class ChargeCardValues : MonoBehaviour
             TextScoreSlot2.GetComponent<TextMeshProUGUI>().color = Color.black;
         }
 
-        // Slot #4
+        // Slot #3
         if (PlayerPrefs.GetInt("Value3") <= 55 && PlayerPrefs.GetInt("Value3") >= 50)//SuperStar
         {
             CopiedCards[3] = Instantiate(OriginalCards[0], Slots[3].parent);
@@ -600,7 +1101,7 @@ public class ChargeCardValues : MonoBehaviour
             TextScoreSlot3.GetComponent<TextMeshProUGUI>().color = Color.black;
         }
 
-        // Slot #5
+        // Slot #4
         if (PlayerPrefs.GetInt("Value4") <= 55 && PlayerPrefs.GetInt("Value4") >= 50)//SuperStar
         {
             CopiedCards[4] = Instantiate(OriginalCards[0], Slots[4].parent);
@@ -638,650 +1139,330 @@ public class ChargeCardValues : MonoBehaviour
             TextScoreSlot4.GetComponent<TextMeshProUGUI>().color = Color.black;
         }
 
-        PlayerScore.text = (PlayerPrefs.GetInt("Value0") + PlayerPrefs.GetInt("Value1") + PlayerPrefs.GetInt("Value2") + PlayerPrefs.GetInt("Value3") 
-            + PlayerPrefs.GetInt("Value4")).ToString();
-        PlayerPrefs.SetInt("ScorePlayer1", (PlayerPrefs.GetInt("Value0") + PlayerPrefs.GetInt("Value1") + PlayerPrefs.GetInt("Value2") + PlayerPrefs.GetInt("Value3")
-            + PlayerPrefs.GetInt("Value4")));
+        PlayerScore.text = (PointsSlot0 + PointsSlot1 + PointsSlot2 + PointsSlot3 + PointsSlot4).ToString();
+        PlayerPrefs.SetInt("ScorePlayer1", (PointsSlot0 + PointsSlot1 + PointsSlot2 + PointsSlot3 + PointsSlot4));
 
     }
 
     public void ScoreSlotValue()
     {
-        ScoreSlot0.text = PlayerPrefs.GetInt("Value0").ToString();
-        int ValueScoreSlot0 = PlayerPrefs.GetInt("Value0");
-        ScoreSlot1.text = PlayerPrefs.GetInt("Value1").ToString();
-        int ValueScoreSlot1 = PlayerPrefs.GetInt("Value1");
-        ScoreSlot2.text = PlayerPrefs.GetInt("Value2").ToString();
-        int ValueScoreSlot2 = PlayerPrefs.GetInt("Value2");
-        ScoreSlot3.text = PlayerPrefs.GetInt("Value3").ToString();
-        int ValueScoreSlot3 = PlayerPrefs.GetInt("Value3");
-        ScoreSlot4.text = PlayerPrefs.GetInt("Value4").ToString();
-        int ValueScoreSlot4 = PlayerPrefs.GetInt("Value4");
-        // Slot 5 CPU 1
-        if (ValueScoreSlot0 <= 55 && ValueScoreSlot0 >= 40) 
+        ScoreSlot0.text = PointsSlot0.ToString();
+        int ValueScoreSlot0 = PointsSlot0;
+        ScoreSlot1.text = PointsSlot1.ToString();
+        int ValueScoreSlot1 = PointsSlot1;
+        ScoreSlot2.text = PointsSlot2.ToString();
+        int ValueScoreSlot2 = PointsSlot2;
+        ScoreSlot3.text = PointsSlot3.ToString();
+        int ValueScoreSlot3 = PointsSlot3;
+        ScoreSlot4.text = PointsSlot4.ToString();
+        int ValueScoreSlot4 = PointsSlot4;
+        // Slot 5 CPU 0
+        if (ValueScoreSlot0 <= 35 && ValueScoreSlot0 >= 15) 
         {
-            int ValueScoreSlot5 = Random.Range(40, 56);
+            int ValueScoreSlot5 = Random.Range(15, 36);
             ScoreSlot5.text = ValueScoreSlot5.ToString();
             PlayerPrefs.SetInt("Value5", ValueScoreSlot5);
-            if (ValueScoreSlot5 <= 55 && ValueScoreSlot5 >= 50) //SuperStar
+            if (ValueScoreSlot5 <= 35 && ValueScoreSlot5 >= 25) //SuperStar
             {
                 CopiedCards[5] = Instantiate(OriginalCards[0], Slots[5].parent);
                 ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
                 TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
             }
-            if (ValueScoreSlot5 <= 49 && ValueScoreSlot5 >= 40) //AllStar
+            if (ValueScoreSlot5 <= 24 && ValueScoreSlot5 >= 15) //AllStar
             {
                 CopiedCards[5] = Instantiate(OriginalCards[1], Slots[5].parent);
                 ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
                 TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
             }
-            if (ValueScoreSlot5 <= 39 && ValueScoreSlot5 >= 30) //RolePlayer
+        }
+        if (ValueScoreSlot0 <= 14 && ValueScoreSlot0 >= 2)
+        {
+            int ValueScoreSlot5 = Random.Range(2, 15);
+            ScoreSlot5.text = ValueScoreSlot5.ToString();
+            PlayerPrefs.SetInt("Value5", ValueScoreSlot5);
+            if (ValueScoreSlot5 == 14) //SuperStar
+            {
+                CopiedCards[5] = Instantiate(OriginalCards[0], Slots[5].parent);
+                ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
+                TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
+            }
+            if (ValueScoreSlot5 == 13) //AllStar
+            {
+                CopiedCards[5] = Instantiate(OriginalCards[1], Slots[5].parent);
+                ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
+                TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
+            }
+            if (ValueScoreSlot5 <= 12 && ValueScoreSlot5 >= 10) //RolePlayer
             {
                 CopiedCards[5] = Instantiate(OriginalCards[2], Slots[5].parent);
                 ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot5 <= 29 && ValueScoreSlot5 >= 20) //RolePlayer2
+            if (ValueScoreSlot5 == 9) //RolePlayer2
             {
                 CopiedCards[5] = Instantiate(OriginalCards[3], Slots[5].parent);
                 ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot5 <= 19 && ValueScoreSlot5 >= 10) //RolePlayer3
+            if (ValueScoreSlot5 == 8) //RolePlayer3
             {
                 CopiedCards[5] = Instantiate(OriginalCards[4], Slots[5].parent);
                 ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot5 <= 9 && ValueScoreSlot5 >= 1) //Benchwarmer
+            if (ValueScoreSlot5 <= 7 && ValueScoreSlot5 >= 2) //Benchwarmer
             {
                 CopiedCards[5] = Instantiate(OriginalCards[5], Slots[5].parent);
                 ScoreSlot5.GetComponent<TextMeshProUGUI>().color = Color.black;
                 TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = Color.black;
             }
         }
-        if (ValueScoreSlot0 <= 39 && ValueScoreSlot0 >= 20)
+        // Slot 6 CPU 1
+        if (ValueScoreSlot1 <= 35 && ValueScoreSlot1 >= 15)
         {
-            int ValueScoreSlot5 = Random.Range(10, 45);
-            ScoreSlot5.text = ValueScoreSlot5.ToString();
-            PlayerPrefs.SetInt("Value5", ValueScoreSlot5);
-            if (ValueScoreSlot5 <= 55 && ValueScoreSlot5 >= 50) //SuperStar
-            {
-                CopiedCards[5] = Instantiate(OriginalCards[0], Slots[5].parent);
-                ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-                TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-            }
-            if (ValueScoreSlot5 <= 49 && ValueScoreSlot5 >= 40) //AllStar
-            {
-                CopiedCards[5] = Instantiate(OriginalCards[1], Slots[5].parent);
-                ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-                TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-            }
-            if (ValueScoreSlot5 <= 39 && ValueScoreSlot5 >= 30) //RolePlayer
-            {
-                CopiedCards[5] = Instantiate(OriginalCards[2], Slots[5].parent);
-                ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot5 <= 29 && ValueScoreSlot5 >= 20) //RolePlayer2
-            {
-                CopiedCards[5] = Instantiate(OriginalCards[3], Slots[5].parent);
-                ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot5 <= 19 && ValueScoreSlot5 >= 10) //RolePlayer3
-            {
-                CopiedCards[5] = Instantiate(OriginalCards[4], Slots[5].parent);
-                ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot5 <= 9 && ValueScoreSlot5 >= 1) //Benchwarmer
-            {
-                CopiedCards[5] = Instantiate(OriginalCards[5], Slots[5].parent);
-                ScoreSlot5.GetComponent<TextMeshProUGUI>().color = Color.black;
-                TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = Color.black;
-            }
-        }
-        if (ValueScoreSlot0 <= 19 && ValueScoreSlot0 >= 1)
-        {
-            int ValueScoreSlot5 = Random.Range(10, 30);
-            ScoreSlot5.text = ValueScoreSlot5.ToString();
-            PlayerPrefs.SetInt("Value5", ValueScoreSlot5);
-            if (ValueScoreSlot5 <= 55 && ValueScoreSlot5 >= 50) //SuperStar
-            {
-                CopiedCards[5] = Instantiate(OriginalCards[0], Slots[5].parent);
-                ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-                TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-            }
-            if (ValueScoreSlot5 <= 49 && ValueScoreSlot5 >= 40) //AllStar
-            {
-                CopiedCards[5] = Instantiate(OriginalCards[1], Slots[5].parent);
-                ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-                TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-            }
-            if (ValueScoreSlot5 <= 39 && ValueScoreSlot5 >= 30) //RolePlayer
-            {
-                CopiedCards[5] = Instantiate(OriginalCards[2], Slots[5].parent);
-                ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot5 <= 29 && ValueScoreSlot5 >= 20) //RolePlayer2
-            {
-                CopiedCards[5] = Instantiate(OriginalCards[3], Slots[5].parent);
-                ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot5 <= 19 && ValueScoreSlot5 >= 10) //RolePlayer3
-            {
-                CopiedCards[5] = Instantiate(OriginalCards[4], Slots[5].parent);
-                ScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot5 <= 9 && ValueScoreSlot5 >= 1) //Benchwarmer
-            {
-                CopiedCards[5] = Instantiate(OriginalCards[5], Slots[5].parent);
-                ScoreSlot5.GetComponent<TextMeshProUGUI>().color = Color.black;
-                TextScoreSlot5.GetComponent<TextMeshProUGUI>().color = Color.black;
-            }
-        }
-        // Slot 6 CPU 2
-        if (ValueScoreSlot1 <= 55 && ValueScoreSlot1 >= 40)
-        {
-            int ValueScoreSlot6 = Random.Range(40, 56);
+            int ValueScoreSlot6 = Random.Range(15, 36);
             ScoreSlot6.text = ValueScoreSlot6.ToString();
             PlayerPrefs.SetInt("Value6", ValueScoreSlot6);
-            if (ValueScoreSlot6 <= 55 && ValueScoreSlot6 >= 50) //SuperStar
+            if (ValueScoreSlot6 <= 35 && ValueScoreSlot6 >= 25) //SuperStar
             {
                 CopiedCards[6] = Instantiate(OriginalCards[0], Slots[6].parent);
                 ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
                 TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
             }
-            if (ValueScoreSlot6 <= 49 && ValueScoreSlot6 >= 40) //AllStar
+            if (ValueScoreSlot6 <= 24 && ValueScoreSlot6 >= 15) //AllStar
             {
                 CopiedCards[6] = Instantiate(OriginalCards[1], Slots[6].parent);
                 ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
                 TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
             }
-            if (ValueScoreSlot6 <= 39 && ValueScoreSlot6 >= 30) //RolePlayer
+        }
+        if (ValueScoreSlot1 <= 14 && ValueScoreSlot1 >= 2)
+        {
+            int ValueScoreSlot6 = Random.Range(2, 15);
+            ScoreSlot6.text = ValueScoreSlot6.ToString();
+            PlayerPrefs.SetInt("Value6", ValueScoreSlot6);
+            if (ValueScoreSlot6 == 14) //SuperStar
+            {
+                CopiedCards[6] = Instantiate(OriginalCards[0], Slots[6].parent);
+                ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
+                TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
+            }
+            if (ValueScoreSlot6 == 13) //AllStar
+            {
+                CopiedCards[6] = Instantiate(OriginalCards[1], Slots[6].parent);
+                ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
+                TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
+            }
+
+            if (ValueScoreSlot6 <= 12 && ValueScoreSlot6 >= 10) //RolePlayer
             {
                 CopiedCards[6] = Instantiate(OriginalCards[2], Slots[6].parent);
                 ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot6 <= 29 && ValueScoreSlot6 >= 20) //RolePlayer2
+            if (ValueScoreSlot6 == 9) //RolePlayer2
             {
                 CopiedCards[6] = Instantiate(OriginalCards[3], Slots[6].parent);
                 ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot6 <= 19 && ValueScoreSlot6 >= 10) //RolePlayer3
+            if (ValueScoreSlot6 == 8) //RolePlayer3
             {
                 CopiedCards[6] = Instantiate(OriginalCards[4], Slots[6].parent);
                 ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot6 <= 9 && ValueScoreSlot6 >= 1) //Benchwarmer
+            if (ValueScoreSlot6 <= 7 && ValueScoreSlot6 >= 2) //Benchwarmer
             {
                 CopiedCards[6] = Instantiate(OriginalCards[5], Slots[6].parent);
                 ScoreSlot6.GetComponent<TextMeshProUGUI>().color = Color.black;
                 TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = Color.black;
             }
         }
-        if (ValueScoreSlot1 <= 39 && ValueScoreSlot1 >= 20)
+        // Slot 7 CPU 2
+        if (ValueScoreSlot2 <= 35 && ValueScoreSlot2 >= 15)
         {
-            int ValueScoreSlot6 = Random.Range(10, 45);
-            ScoreSlot6.text = ValueScoreSlot6.ToString();
-            PlayerPrefs.SetInt("Value6", ValueScoreSlot6);
-            if (ValueScoreSlot6 <= 55 && ValueScoreSlot6 >= 50) //SuperStar
-            {
-                CopiedCards[6] = Instantiate(OriginalCards[0], Slots[6].parent);
-                ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-                TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-            }
-            if (ValueScoreSlot6 <= 49 && ValueScoreSlot6 >= 40) //AllStar
-            {
-                CopiedCards[6] = Instantiate(OriginalCards[1], Slots[6].parent);
-                ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-                TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-            }
-            if (ValueScoreSlot6 <= 39 && ValueScoreSlot6 >= 30) //RolePlayer
-            {
-                CopiedCards[6] = Instantiate(OriginalCards[2], Slots[6].parent);
-                ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot6 <= 29 && ValueScoreSlot6 >= 20) //RolePlayer2
-            {
-                CopiedCards[6] = Instantiate(OriginalCards[3], Slots[6].parent);
-                ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot6 <= 19 && ValueScoreSlot6 >= 10) //RolePlayer3
-            {
-                CopiedCards[6] = Instantiate(OriginalCards[4], Slots[6].parent);
-                ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot6 <= 9 && ValueScoreSlot6 >= 1) //Benchwarmer
-            {
-                CopiedCards[6] = Instantiate(OriginalCards[5], Slots[6].parent);
-                ScoreSlot6.GetComponent<TextMeshProUGUI>().color = Color.black;
-                TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = Color.black;
-            }
-        }
-        if (ValueScoreSlot1 <= 19 && ValueScoreSlot1 >= 1)
-        {
-            int ValueScoreSlot6 = Random.Range(10, 30);
-            ScoreSlot6.text = ValueScoreSlot6.ToString();
-            PlayerPrefs.SetInt("Value6", ValueScoreSlot6);
-            if (ValueScoreSlot6 <= 55 && ValueScoreSlot6 >= 50) //SuperStar
-            {
-                CopiedCards[6] = Instantiate(OriginalCards[0], Slots[6].parent);
-                ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-                TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-            }
-            if (ValueScoreSlot6 <= 49 && ValueScoreSlot6 >= 40) //AllStar
-            {
-                CopiedCards[6] = Instantiate(OriginalCards[1], Slots[6].parent);
-                ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-                TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-            }
-            if (ValueScoreSlot6 <= 39 && ValueScoreSlot6 >= 30) //RolePlayer
-            {
-                CopiedCards[6] = Instantiate(OriginalCards[2], Slots[6].parent);
-                ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot6 <= 29 && ValueScoreSlot6 >= 20) //RolePlayer2
-            {
-                CopiedCards[6] = Instantiate(OriginalCards[3], Slots[6].parent);
-                ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot6 <= 19 && ValueScoreSlot6 >= 10) //RolePlayer3
-            {
-                CopiedCards[6] = Instantiate(OriginalCards[4], Slots[6].parent);
-                ScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot6 <= 9 && ValueScoreSlot6 >= 1) //Benchwarmer
-            {
-                CopiedCards[6] = Instantiate(OriginalCards[5], Slots[6].parent);
-                ScoreSlot6.GetComponent<TextMeshProUGUI>().color = Color.black;
-                TextScoreSlot6.GetComponent<TextMeshProUGUI>().color = Color.black;
-            }
-        }
-        // Slot 7 CPU 3
-        if (ValueScoreSlot2 <= 55 && ValueScoreSlot2 >= 40)
-        {
-            int ValueScoreSlot7 = Random.Range(40, 56);
+            int ValueScoreSlot7 = Random.Range(15, 36);
             ScoreSlot7.text = ValueScoreSlot7.ToString();
             PlayerPrefs.SetInt("Value7", ValueScoreSlot7);
-            if (ValueScoreSlot7 <= 55 && ValueScoreSlot7 >= 50) //SuperStar
+            if (ValueScoreSlot7 <= 35 && ValueScoreSlot7 >= 25) //SuperStar
             {
                 CopiedCards[7] = Instantiate(OriginalCards[0], Slots[7].parent);
                 ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
                 TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
             }
-            if (ValueScoreSlot7 <= 49 && ValueScoreSlot7 >= 40) //AllStar
+            if (ValueScoreSlot7 <= 24 && ValueScoreSlot7 >= 15) //AllStar
             {
                 CopiedCards[7] = Instantiate(OriginalCards[1], Slots[7].parent);
                 ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
                 TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
             }
-            if (ValueScoreSlot7 <= 39 && ValueScoreSlot7 >= 30) //RolePlayer
+        }
+        if (ValueScoreSlot2 <= 14 && ValueScoreSlot2 >= 2)
+        {
+            int ValueScoreSlot7 = Random.Range(2, 15);
+            ScoreSlot7.text = ValueScoreSlot7.ToString();
+            PlayerPrefs.SetInt("Value7", ValueScoreSlot7);
+            if (ValueScoreSlot7 == 14) //SuperStar
+            {
+                CopiedCards[7] = Instantiate(OriginalCards[0], Slots[7].parent);
+                ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
+                TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
+            }
+            if (ValueScoreSlot7 == 13) //AllStar
+            {
+                CopiedCards[7] = Instantiate(OriginalCards[1], Slots[7].parent);
+                ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
+                TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
+            }
+
+            if (ValueScoreSlot7 <= 12 && ValueScoreSlot7 >= 10) //RolePlayer
             {
                 CopiedCards[7] = Instantiate(OriginalCards[2], Slots[7].parent);
                 ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot7 <= 29 && ValueScoreSlot7 >= 20) //RolePlayer2
+            if (ValueScoreSlot7 == 9) //RolePlayer2
             {
                 CopiedCards[7] = Instantiate(OriginalCards[3], Slots[7].parent);
                 ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot7 <= 19 && ValueScoreSlot7 >= 10) //RolePlayer3
+            if (ValueScoreSlot7 == 8) //RolePlayer3
             {
                 CopiedCards[7] = Instantiate(OriginalCards[4], Slots[7].parent);
                 ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot7 <= 9 && ValueScoreSlot7 >= 1) //Benchwarmer
+            if (ValueScoreSlot7 <= 7 && ValueScoreSlot7 >= 2) //Benchwarmer
             {
                 CopiedCards[7] = Instantiate(OriginalCards[5], Slots[7].parent);
                 ScoreSlot7.GetComponent<TextMeshProUGUI>().color = Color.black;
                 TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = Color.black;
             }
         }
-        if (ValueScoreSlot2 <= 39 && ValueScoreSlot2 >= 20)
+        // Slot 8 CPU 3
+        if (ValueScoreSlot3 <= 35 && ValueScoreSlot3 >= 15)
         {
-            int ValueScoreSlot7 = Random.Range(10, 45);
-            ScoreSlot7.text = ValueScoreSlot7.ToString();
-            PlayerPrefs.SetInt("Value7", ValueScoreSlot7);
-            if (ValueScoreSlot7 <= 55 && ValueScoreSlot7 >= 50) //SuperStar
-            {
-                CopiedCards[7] = Instantiate(OriginalCards[0], Slots[7].parent);
-                ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-                TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-            }
-            if (ValueScoreSlot7 <= 49 && ValueScoreSlot7 >= 40) //AllStar
-            {
-                CopiedCards[7] = Instantiate(OriginalCards[1], Slots[7].parent);
-                ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-                TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-            }
-            if (ValueScoreSlot7 <= 39 && ValueScoreSlot7 >= 30) //RolePlayer
-            {
-                CopiedCards[7] = Instantiate(OriginalCards[2], Slots[7].parent);
-                ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot7 <= 29 && ValueScoreSlot7 >= 20) //RolePlayer2
-            {
-                CopiedCards[7] = Instantiate(OriginalCards[3], Slots[7].parent);
-                ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot7 <= 19 && ValueScoreSlot7 >= 10) //RolePlayer3
-            {
-                CopiedCards[7] = Instantiate(OriginalCards[4], Slots[7].parent);
-                ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot7 <= 9 && ValueScoreSlot7 >= 1) //Benchwarmer
-            {
-                CopiedCards[7] = Instantiate(OriginalCards[5], Slots[7].parent);
-                ScoreSlot7.GetComponent<TextMeshProUGUI>().color = Color.black;
-                TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = Color.black;
-            }
-        }
-        if (ValueScoreSlot2 <= 19 && ValueScoreSlot2 >= 1)
-        {
-            int ValueScoreSlot7 = Random.Range(10, 30);
-            ScoreSlot7.text = ValueScoreSlot7.ToString();
-            PlayerPrefs.SetInt("Value7", ValueScoreSlot7);
-            if (ValueScoreSlot7 <= 55 && ValueScoreSlot7 >= 50) //SuperStar
-            {
-                CopiedCards[7] = Instantiate(OriginalCards[0], Slots[7].parent);
-                ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-                TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-            }
-            if (ValueScoreSlot7 <= 49 && ValueScoreSlot7 >= 40) //AllStar
-            {
-                CopiedCards[7] = Instantiate(OriginalCards[1], Slots[7].parent);
-                ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-                TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-            }
-            if (ValueScoreSlot7 <= 39 && ValueScoreSlot7 >= 30) //RolePlayer
-            {
-                CopiedCards[7] = Instantiate(OriginalCards[2], Slots[7].parent);
-                ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot7 <= 29 && ValueScoreSlot7 >= 20) //RolePlayer2
-            {
-                CopiedCards[7] = Instantiate(OriginalCards[3], Slots[7].parent);
-                ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot7 <= 19 && ValueScoreSlot7 >= 10) //RolePlayer3
-            {
-                CopiedCards[7] = Instantiate(OriginalCards[4], Slots[7].parent);
-                ScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot7 <= 9 && ValueScoreSlot7 >= 1) //Benchwarmer
-            {
-                CopiedCards[7] = Instantiate(OriginalCards[5], Slots[7].parent);
-                ScoreSlot7.GetComponent<TextMeshProUGUI>().color = Color.black;
-                TextScoreSlot7.GetComponent<TextMeshProUGUI>().color = Color.black;
-            }
-        }
-        // Slot 8 CPU 4
-        if (ValueScoreSlot3 <= 55 && ValueScoreSlot3 >= 40)
-        {
-            int ValueScoreSlot8 = Random.Range(40, 56);
+            int ValueScoreSlot8 = Random.Range(15, 36);
             ScoreSlot8.text = ValueScoreSlot8.ToString();
             PlayerPrefs.SetInt("Value8", ValueScoreSlot8);
-            if (ValueScoreSlot8 <= 55 && ValueScoreSlot8 >= 50) //SuperStar
+            if (ValueScoreSlot8 <= 35 && ValueScoreSlot8 >= 25) //SuperStar
             {
                 CopiedCards[8] = Instantiate(OriginalCards[0], Slots[8].parent);
                 ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
                 TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
             }
-            if (ValueScoreSlot8 <= 49 && ValueScoreSlot8 >= 40) //AllStar
+            if (ValueScoreSlot8 <= 24 && ValueScoreSlot8 >= 15) //AllStar
             {
                 CopiedCards[8] = Instantiate(OriginalCards[1], Slots[8].parent);
                 ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
                 TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
             }
-            if (ValueScoreSlot8 <= 39 && ValueScoreSlot8 >= 30) //RolePlayer
+        }
+        if (ValueScoreSlot3 <= 14 && ValueScoreSlot3 >= 2)
+        {
+            int ValueScoreSlot8 = Random.Range(2, 15);
+            ScoreSlot8.text = ValueScoreSlot8.ToString();
+            PlayerPrefs.SetInt("Value8", ValueScoreSlot8);
+            if (ValueScoreSlot8 == 14) //SuperStar
+            {
+                CopiedCards[8] = Instantiate(OriginalCards[0], Slots[8].parent);
+                ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
+                TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
+            }
+            if (ValueScoreSlot8 == 13) //AllStar
+            {
+                CopiedCards[8] = Instantiate(OriginalCards[1], Slots[8].parent);
+                ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
+                TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
+            }
+            if (ValueScoreSlot8 <= 12 && ValueScoreSlot8 >= 10) //RolePlayer
             {
                 CopiedCards[8] = Instantiate(OriginalCards[2], Slots[8].parent);
                 ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot8 <= 29 && ValueScoreSlot8 >= 20) //RolePlayer2
+            if (ValueScoreSlot8 == 9) //RolePlayer2
             {
                 CopiedCards[8] = Instantiate(OriginalCards[3], Slots[8].parent);
                 ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot8 <= 19 && ValueScoreSlot8 >= 10) //RolePlayer3
+            if (ValueScoreSlot8 == 8) //RolePlayer3
             {
                 CopiedCards[8] = Instantiate(OriginalCards[4], Slots[8].parent);
                 ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot8 <= 9 && ValueScoreSlot8 >= 1) //Benchwarmer
+            if (ValueScoreSlot8 <= 7 && ValueScoreSlot8 >= 2) //Benchwarmer
             {
                 CopiedCards[8] = Instantiate(OriginalCards[5], Slots[8].parent);
                 ScoreSlot8.GetComponent<TextMeshProUGUI>().color = Color.black;
                 TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = Color.black;
             }
         }
-        if (ValueScoreSlot3 <= 39 && ValueScoreSlot3 >= 20)
+        // Slot 9 CPU 4
+        if (ValueScoreSlot4 <= 35 && ValueScoreSlot4 >= 15)
         {
-            int ValueScoreSlot8 = Random.Range(10, 45);
-            ScoreSlot8.text = ValueScoreSlot8.ToString();
-            PlayerPrefs.SetInt("Value8", ValueScoreSlot8);
-            if (ValueScoreSlot8 <= 55 && ValueScoreSlot8 >= 50) //SuperStar
-            {
-                CopiedCards[8] = Instantiate(OriginalCards[0], Slots[8].parent);
-                ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-                TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-            }
-            if (ValueScoreSlot8 <= 49 && ValueScoreSlot8 >= 40) //AllStar
-            {
-                CopiedCards[8] = Instantiate(OriginalCards[1], Slots[8].parent);
-                ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-                TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-            }
-            if (ValueScoreSlot8 <= 39 && ValueScoreSlot8 >= 30) //RolePlayer
-            {
-                CopiedCards[8] = Instantiate(OriginalCards[2], Slots[8].parent);
-                ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot8 <= 29 && ValueScoreSlot8 >= 20) //RolePlayer2
-            {
-                CopiedCards[8] = Instantiate(OriginalCards[3], Slots[8].parent);
-                ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot8 <= 19 && ValueScoreSlot8 >= 10) //RolePlayer3
-            {
-                CopiedCards[8] = Instantiate(OriginalCards[4], Slots[8].parent);
-                ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot8 <= 9 && ValueScoreSlot8 >= 1) //Benchwarmer
-            {
-                CopiedCards[8] = Instantiate(OriginalCards[5], Slots[8].parent);
-                ScoreSlot8.GetComponent<TextMeshProUGUI>().color = Color.black;
-                TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = Color.black;
-            }
-        }
-        if (ValueScoreSlot3 <= 19 && ValueScoreSlot3 >= 1)
-        {
-            int ValueScoreSlot8 = Random.Range(10, 30);
-            ScoreSlot8.text = ValueScoreSlot8.ToString();
-            PlayerPrefs.SetInt("Value8", ValueScoreSlot8);
-            if (ValueScoreSlot8 <= 55 && ValueScoreSlot8 >= 50) //SuperStar
-            {
-                CopiedCards[8] = Instantiate(OriginalCards[0], Slots[8].parent);
-                ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-                TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-            }
-            if (ValueScoreSlot8 <= 49 && ValueScoreSlot8 >= 40) //AllStar
-            {
-                CopiedCards[8] = Instantiate(OriginalCards[1], Slots[8].parent);
-                ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-                TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-            }
-            if (ValueScoreSlot8 <= 39 && ValueScoreSlot8 >= 30) //RolePlayer
-            {
-                CopiedCards[8] = Instantiate(OriginalCards[2], Slots[8].parent);
-                ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot8 <= 29 && ValueScoreSlot8 >= 20) //RolePlayer2
-            {
-                CopiedCards[8] = Instantiate(OriginalCards[3], Slots[8].parent);
-                ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot8 <= 19 && ValueScoreSlot8 >= 10) //RolePlayer3
-            {
-                CopiedCards[8] = Instantiate(OriginalCards[4], Slots[8].parent);
-                ScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot8 <= 9 && ValueScoreSlot8 >= 1) //Benchwarmer
-            {
-                CopiedCards[8] = Instantiate(OriginalCards[5], Slots[8].parent);
-                ScoreSlot8.GetComponent<TextMeshProUGUI>().color = Color.black;
-                TextScoreSlot8.GetComponent<TextMeshProUGUI>().color = Color.black;
-            }
-        }
-        // Slot 9 CPU 5
-        if (ValueScoreSlot4 <= 55 && ValueScoreSlot4 >= 40)
-        {
-            int ValueScoreSlot9 = Random.Range(40, 56);
+            int ValueScoreSlot9 = Random.Range(15, 36);
             ScoreSlot9.text = ValueScoreSlot9.ToString();
             PlayerPrefs.SetInt("Value9", ValueScoreSlot9);
-            if (ValueScoreSlot9 <= 55 && ValueScoreSlot9 >= 50) //SuperStar
+            if (ValueScoreSlot9 <= 35 && ValueScoreSlot9 >= 25) //SuperStar
             {
                 CopiedCards[9] = Instantiate(OriginalCards[0], Slots[9].parent);
                 ScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
                 TextScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
             }
-            if (ValueScoreSlot9 <= 49 && ValueScoreSlot9 >= 40) //AllStar
+            if (ValueScoreSlot9 <= 24 && ValueScoreSlot9 >= 15) //AllStar
             {
                 CopiedCards[9] = Instantiate(OriginalCards[1], Slots[9].parent);
                 ScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
                 TextScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
             }
-            if (ValueScoreSlot9 <= 39 && ValueScoreSlot9 >= 30) //RolePlayer
+        }
+        if (ValueScoreSlot4 <= 14 && ValueScoreSlot4 >= 2)
+        {
+            int ValueScoreSlot9 = Random.Range(2, 15);
+            ScoreSlot9.text = ValueScoreSlot9.ToString();
+            PlayerPrefs.SetInt("Value9", ValueScoreSlot9);
+            if (ValueScoreSlot9 == 14) //SuperStar
+            {
+                CopiedCards[9] = Instantiate(OriginalCards[0], Slots[9].parent);
+                ScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
+                TextScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
+            }
+            if (ValueScoreSlot9 == 13) //AllStar
+            {
+                CopiedCards[9] = Instantiate(OriginalCards[1], Slots[9].parent);
+                ScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
+                TextScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
+            }
+            if (ValueScoreSlot9 <= 12 && ValueScoreSlot9 >= 10) //RolePlayer
             {
                 CopiedCards[9] = Instantiate(OriginalCards[2], Slots[9].parent);
                 ScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot9 <= 29 && ValueScoreSlot9 >= 20) //RolePlayer2
+            if (ValueScoreSlot9 == 9) //RolePlayer2
             {
                 CopiedCards[9] = Instantiate(OriginalCards[3], Slots[9].parent);
                 ScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot9 <= 19 && ValueScoreSlot9 >= 10) //RolePlayer3
+            if (ValueScoreSlot9 == 8) //RolePlayer3
             {
                 CopiedCards[9] = Instantiate(OriginalCards[4], Slots[9].parent);
                 ScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
                 TextScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
             }
-            if (ValueScoreSlot9 <= 9 && ValueScoreSlot9 >= 1) //Benchwarmer
+            if (ValueScoreSlot9 <= 7 && ValueScoreSlot9 >= 2) //Benchwarmer
             {
                 CopiedCards[9] = Instantiate(OriginalCards[5], Slots[9].parent);
                 ScoreSlot9.GetComponent<TextMeshProUGUI>().color = Color.black;
                 TextScoreSlot9.GetComponent<TextMeshProUGUI>().color = Color.black;
             }
         }
-        if (ValueScoreSlot4 <= 39 && ValueScoreSlot4 >= 20)
-        {
-            int ValueScoreSlot9 = Random.Range(10, 45);
-            ScoreSlot9.text = ValueScoreSlot9.ToString();
-            PlayerPrefs.SetInt("Value9", ValueScoreSlot9);
-            if (ValueScoreSlot9 <= 55 && ValueScoreSlot9 >= 50) //SuperStar
-            {
-                CopiedCards[9] = Instantiate(OriginalCards[0], Slots[9].parent);
-                ScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-                TextScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(1, 0.6156863f, 0f);
-            }
-            if (ValueScoreSlot9 <= 49 && ValueScoreSlot9 >= 40) //AllStar
-            {
-                CopiedCards[9] = Instantiate(OriginalCards[1], Slots[9].parent);
-                ScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-                TextScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.145098f, 0.172549f, 0.3647059f);
-
-            }
-            if (ValueScoreSlot9 <= 39 && ValueScoreSlot9 >= 30) //RolePlayer
-            {
-                CopiedCards[9] = Instantiate(OriginalCards[2], Slots[9].parent);
-                ScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot9 <= 29 && ValueScoreSlot9 >= 20) //RolePlayer2
-            {
-                CopiedCards[9] = Instantiate(OriginalCards[3], Slots[9].parent);
-                ScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot9 <= 19 && ValueScoreSlot9 >= 10) //RolePlayer3
-            {
-                CopiedCards[9] = Instantiate(OriginalCards[4], Slots[9].parent);
-                ScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-                TextScoreSlot9.GetComponent<TextMeshProUGUI>().color = new Color(0.7215686f, 0.5686275f, 0.3686275f);
-            }
-            if (ValueScoreSlot9 <= 9 && ValueScoreSlot9 >= 1) //Benchwarmer
-            {
-                CopiedCards[9] = Instantiate(OriginalCards[5], Slots[9].parent);
-                ScoreSlot9.GetComponent<TextMeshProUGUI>().color = Color.black;
-                TextScoreSlot9.GetComponent<TextMeshProUGUI>().color = Color.black;
-            }
-        }
-        if (ValueScoreSlot4 <= 19 && ValueScoreSlot4 >= 1)
-        {
-            int ValueScoreSlot9 = Random.Range(10, 30);
-            ScoreSlot9.text = ValueScoreSlot9.ToString();
-            PlayerPrefs.SetInt("Value9", ValueScoreSlot9);
-            if (ValueScoreSlot9 <= 55 && ValueScoreSlot9 >= 50) //SuperStar
-            {
-                CopiedCards[9] = Instantiate(OriginalCards[0], Slots[9].parent);
-            }
-            if (ValueScoreSlot9 <= 49 && ValueScoreSlot9 >= 40) //AllStar
-            {
-                CopiedCards[9] = Instantiate(OriginalCards[1], Slots[9].parent);
-            }
-            if (ValueScoreSlot9 <= 39 && ValueScoreSlot9 >= 30) //RolePlayer
-            {
-                CopiedCards[9] = Instantiate(OriginalCards[2], Slots[9].parent);
-            }
-            if (ValueScoreSlot9 <= 29 && ValueScoreSlot9 >= 20) //RolePlayer2
-            {
-                CopiedCards[9] = Instantiate(OriginalCards[3], Slots[9].parent);
-            }
-            if (ValueScoreSlot9 <= 19 && ValueScoreSlot9 >= 10) //RolePlayer3
-            {
-                CopiedCards[9] = Instantiate(OriginalCards[4], Slots[9].parent);
-            }
-            if (ValueScoreSlot9 <= 9 && ValueScoreSlot9 >= 1) //Benchwarmer
-            {
-                CopiedCards[9] = Instantiate(OriginalCards[5], Slots[9].parent);
-            }
-        }
-
         CPUScore.text = (PlayerPrefs.GetInt("Value5") + PlayerPrefs.GetInt("Value6") + PlayerPrefs.GetInt("Value7") + PlayerPrefs.GetInt("Value8")
             + PlayerPrefs.GetInt("Value9")).ToString();
         PlayerPrefs.SetInt("ScoreCPU", (PlayerPrefs.GetInt("Value5") + PlayerPrefs.GetInt("Value6") + PlayerPrefs.GetInt("Value7") + PlayerPrefs.GetInt("Value8")

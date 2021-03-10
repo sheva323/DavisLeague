@@ -17,6 +17,6 @@ public class GameData : MonoBehaviour
     }
     public void UserNameFunction()
     {
-        PlayerPrefs.SetString("username", UserName.text);
+        //PlayerPrefs.SetString("username", UserName.text);
     }
 }

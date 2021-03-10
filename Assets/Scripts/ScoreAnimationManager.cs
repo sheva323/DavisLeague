@@ -19,65 +19,14 @@ public class ScoreAnimationManager : MonoBehaviour
     public Text CPULoses;
     public AudioSource Crowd;
     public AudioSource Aww;
+    /*private void Awake() // Solo para pruebas
+    {
+        PlayerPrefs.SetInt("BattleNumber", 4);
+        PlayerPrefs.SetInt("GlobalBattleScorePlayer1Battle4", 2);
+        PlayerPrefs.SetInt("GlobalBattleScoreCPUBattle4", 2);
+    }*/
     void Start()
     {
-        /*
-        if (PlayerPrefs.GetInt("BattleNumber") == 1)
-        {
-            if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1") > PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle1"))
-            {
-                Crowd.Play();
-            }
-            else
-            {
-                Aww.Play();
-            }
-        }
-        if (PlayerPrefs.GetInt("BattleNumber") == 2)
-        {
-            if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2") > PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2"))
-            {
-                Crowd.Play();
-            }
-            else
-            {
-                Aww.Play();
-            }
-        }
-        if (PlayerPrefs.GetInt("BattleNumber") == 3)
-        {
-            if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") > PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3"))
-            {
-                Crowd.Play();
-            }
-            else
-            {
-                Aww.Play();
-            }
-        }
-        if (PlayerPrefs.GetInt("BattleNumber") == 4)
-        {
-            if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle4") > PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle4"))
-            {
-                Crowd.Play();
-            }
-            else
-            {
-                Aww.Play();
-            }
-        }
-        if (PlayerPrefs.GetInt("BattleNumber") == 5)
-        {
-            if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle5") > PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle5"))
-            {
-                Crowd.Play();
-            }
-            else
-            {
-                Aww.Play();
-            }
-        }
-        */
         ScoreManager();
         Destroy(CardControl, 3.7f);
         if (PlayerPrefs.GetInt("ScorePlayer1") > PlayerPrefs.GetInt("ScoreCPU"))
@@ -94,6 +43,14 @@ public class ScoreAnimationManager : MonoBehaviour
             Player1Loses.gameObject.SetActive(true);
             Aww.Play();
         }
+        if (PlayerPrefs.GetInt("ScorePlayer1") == PlayerPrefs.GetInt("ScoreCPU"))
+        {
+            CPUWinsAnimator.SetBool("CPUWins", true);
+            CPUWins.gameObject.SetActive(true);
+            Player1WinsAnimator.SetBool("Player1Wins", true);
+            Player1Wins.gameObject.SetActive(true);
+            Crowd.Play();
+        }
     }
 
     // Update is called once per frame
@@ -101,19 +58,39 @@ public class ScoreAnimationManager : MonoBehaviour
     {
         if (!CardControl)
         {
-            if (PlayerPrefs.GetInt("BattleNumber") != 4)
+            if (PlayerPrefs.GetInt("BattleNumber") < 4)
             {
                 SceneManager.LoadScene(2); //A1. Main Screen
             }
             if (PlayerPrefs.GetInt("BattleNumber") == 4)
             {
-                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle4")> PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle4"))
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle4") > PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle4"))
                 {
                     SceneManager.LoadScene(5); //winner
                 }
-                else
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle4") < PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle4"))
                 {
                     SceneManager.LoadScene(6); //Looser
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle4") == PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle4")) //Tie
+                {
+                    SceneManager.LoadScene(7); //Break Tie
+                }
+            }
+            if (PlayerPrefs.GetInt("BattleNumber") == 5)
+            {
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle5") > PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle5"))
+                {
+                    SceneManager.LoadScene(5); //winner
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle5") < PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle5"))
+                {
+                    SceneManager.LoadScene(6); //Looser
+                }
+                if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle5") == PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle5")) //Tie
+                {
+                    PlayerPrefs.SetInt("BattleNumber", 5);
+                    SceneManager.LoadScene(7); //Break Tie
                 }
             }
         }
@@ -122,14 +99,10 @@ public class ScoreAnimationManager : MonoBehaviour
     void ScoreManager ()
     {
         print(PlayerPrefs.GetInt("BattleNumber"));
-        print(PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle1"));
-        print(PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle1"));
-        print(PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle2"));
-        print(PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle2"));
-        print(PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3"));
-        print(PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3"));
         print(PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle4"));
         print(PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle4"));
+        print(PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle5"));
+        print(PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle5"));
 
         if (PlayerPrefs.GetInt("BattleNumber") == 1)
         {
@@ -222,6 +195,12 @@ public class ScoreAnimationManager : MonoBehaviour
             {
                 ScoreCPU.text = "04";
             }
+
+        }
+        if (PlayerPrefs.GetInt("BattleNumber") == 5)
+        {
+            ScorePlayer1.text = PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle5").ToString();
+            ScoreCPU.text = PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle5").ToString();
         }
     }
 }

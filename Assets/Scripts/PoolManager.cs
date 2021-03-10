@@ -21,6 +21,7 @@ public class PoolManager : MonoBehaviour
     public GameObject[] Dummy;
     public AudioSource CardSound;
     public AudioSource SuperStarSound;
+    public AudioSource AngelSound;
     public ParticleSystem ParticlesChange;
     private GameObject PoolGame;
     Vector3 PoolGameVector;
@@ -183,6 +184,7 @@ public class PoolManager : MonoBehaviour
                 if (cardsRandom[i].gameObject.CompareTag("superstar"))
                 {
                     SuperStarAnimation.SetBool("ActivateSuperStarAnimation", true);
+                    AngelSound.Play();
                 }
             }
         }

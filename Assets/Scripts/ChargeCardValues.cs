@@ -1600,43 +1600,78 @@ public class ChargeCardValues : MonoBehaviour
             if (PlayerPrefs.GetInt("BattleNumber") == 4)
             {
                 if (PlayerPrefs.GetInt("ScorePlayer1") > PlayerPrefs.GetInt("ScoreCPU"))
+                {
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 0)
                     {
-                        if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 0)
-                        {
-                            Ball1Player1Animator.SetBool("ActivateBallPlayer1", true);
-                        }
-                        if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 1)
-                        {
-                            Ball2Player1Animator.SetBool("ActivateBall1Player1", true);
-                        }
-                        if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 2)
-                        {
-                            Ball3Player1Animator.SetBool("ActivateBall2Player1", true);
-                        }
-                        if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 3)
-                        {
-                            Ball4Player1Animator.SetBool("ActivateBall3Player1", true);
-                        }
+                        Ball1Player1Animator.SetBool("ActivateBallPlayer1", true);
                     }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 1)
+                    {
+                        Ball2Player1Animator.SetBool("ActivateBall1Player1", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 2)
+                    {
+                        Ball3Player1Animator.SetBool("ActivateBall2Player1", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 3)
+                    {
+                        Ball4Player1Animator.SetBool("ActivateBall3Player1", true);
+                    }
+                }
                 if (PlayerPrefs.GetInt("ScorePlayer1") < PlayerPrefs.GetInt("ScoreCPU"))
+                {
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 0)
                     {
-                        if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 0)
-                        {
-                            Ball1CPUAminator.SetBool("ActivateBallCPU", true);
-                        }
-                        if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 1)
-                        {
-                            Ball2CPUAminator.SetBool("ActivateBall1CPU", true);
-                        }
-                        if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 2)
-                        {
-                            Ball3CPUAminator.SetBool("ActivateBall2CPU", true);
-                        }
-                        if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 3)
-                        {
-                            Ball4CPUAminator.SetBool("ActivateBall3CPU", true);
-                        }
+                        Ball1CPUAminator.SetBool("ActivateBallCPU", true);
                     }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 1)
+                    {
+                        Ball2CPUAminator.SetBool("ActivateBall1CPU", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 2)
+                    {
+                        Ball3CPUAminator.SetBool("ActivateBall2CPU", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 3)
+                    {
+                        Ball4CPUAminator.SetBool("ActivateBall3CPU", true);
+                    }
+                }
+                if (PlayerPrefs.GetInt("ScorePlayer1") == PlayerPrefs.GetInt("ScoreCPU"))
+                {
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 0)
+                    {
+                        Ball1Player1Animator.SetBool("ActivateBallPlayer1", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 1)
+                    {
+                        Ball2Player1Animator.SetBool("ActivateBall1Player1", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 2)
+                    {
+                        Ball3Player1Animator.SetBool("ActivateBall2Player1", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScorePlayer1Battle3") == 3)
+                    {
+                        Ball4Player1Animator.SetBool("ActivateBall3Player1", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 0)
+                    {
+                        Ball1CPUAminator.SetBool("ActivateBallCPU", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 1)
+                    {
+                        Ball2CPUAminator.SetBool("ActivateBall1CPU", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 2)
+                    {
+                        Ball3CPUAminator.SetBool("ActivateBall2CPU", true);
+                    }
+                    if (PlayerPrefs.GetInt("GlobalBattleScoreCPUBattle3") == 3)
+                    {
+                        Ball4CPUAminator.SetBool("ActivateBall3CPU", true);
+                    }
+                }
             }
         }
     }
@@ -1647,19 +1682,19 @@ public class ChargeCardValues : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("BattleNumber") == 1)
             {
-                SceneManager.LoadScene(4); //A1. Main Screen
+                SceneManager.LoadScene(4); //Win Lose page
             }
             if (PlayerPrefs.GetInt("BattleNumber") == 2)
             {
-                SceneManager.LoadScene(4); //A1. Main Screen
+                SceneManager.LoadScene(4); //Win Lose page
             }
             if (PlayerPrefs.GetInt("BattleNumber") == 3)
             {
-                SceneManager.LoadScene(4); //A1. Main Screen
+                SceneManager.LoadScene(4); //Win Lose page
             }
             if (PlayerPrefs.GetInt("BattleNumber") == 4)
             {
-                SceneManager.LoadScene(4); //A1. Main Screen
+                SceneManager.LoadScene(4); //Win Lose page
             }
         }
     }

@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/A5.Tie Card Screen.unity
     guid: e93fe9e7e4760244588b1cfa96c16fc2
+  - enabled: 1
+    path: Assets/Scenes/A6.Settings.unity
+    guid: 8008030e947957a408f538a6ef99cb84
   m_configObjects: {}

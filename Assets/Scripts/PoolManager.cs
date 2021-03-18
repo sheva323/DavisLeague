@@ -26,19 +26,27 @@ public class PoolManager : MonoBehaviour
     private GameObject PoolGame;
     Vector3 PoolGameVector;
     public Animator SuperStarAnimation;
+    public GameObject [] Videos;
+    public GameObject[] RawImages;
+    public int VideoRandom;
 
-    // Start is called before the first frame update
+
     private void Awake()
     {
         PoolGame = GameObject.FindGameObjectWithTag("PoolGame");
         PoolGame.SetActive(true);
         PlayerPrefs.SetInt("SuperStarAnimation", 0);
     }
-    
+    private void RandomChange()
+    {
+        VideoRandom = Random.Range(0, 5);
+    }
     void Start()
     //This script creates 20 random cards Between AllStar, Superstar, Roleplayer, Bencharmer. Creates a copy of 4 Prefabs cards
     //Storage them in PoolGame (Scene A1)
     {
+        VideoRandom = Random.Range(0, 5);
+        Invoke("RandomChange", 9f);
         index = 0;
 
         cardsRandom[0] = Instantiate(cardsPrefab[Random.Range(2, 6)], cardPosition[0].parent); 
@@ -145,7 +153,9 @@ public class PoolManager : MonoBehaviour
                     speed = 4;
                     Dummy[i].GetComponentsInChildren<ParticleSystem>()[1].Play();
                     Dummy[i].transform.Translate(CardPositionNew * speed * Time.deltaTime);
-
+                    print(VideoRandom);
+                    RawImages[VideoRandom].SetActive(true);
+                    Videos[VideoRandom].GetComponent<UnityEngine.Video.VideoPlayer>().Play();
                 }
                 else
                 {

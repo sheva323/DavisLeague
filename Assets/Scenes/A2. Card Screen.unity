@@ -533,6 +533,11 @@ MonoBehaviour:
   SlotEnd: {fileID: 1302523845}
   Crow: {fileID: 500153664}
   Aww: {fileID: 838512547}
+  PointsSlot0: 0
+  PointsSlot1: 0
+  PointsSlot2: 0
+  PointsSlot3: 0
+  PointsSlot4: 0
 --- !u!1 &77792558
 GameObject:
   m_ObjectHideFlags: 0
@@ -9858,6 +9863,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2070521886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2070521888}
+  - component: {fileID: 2070521887}
+  m_Layer: 0
+  m_Name: AudioEffectsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2070521887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070521886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abdf3fb21a64fb24eb5885cdf92a937f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundEffects:
+  - {fileID: 232587756}
+  - {fileID: 2090254677}
+  - {fileID: 1779936905}
+  - {fileID: 1302523845}
+  - {fileID: 500153664}
+  - {fileID: 838512547}
+--- !u!4 &2070521888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070521886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9049973, y: 0.16251798, z: -35.424805}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2083648058
 GameObject:

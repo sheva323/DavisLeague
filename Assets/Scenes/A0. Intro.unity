@@ -223,7 +223,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8677083, y: 0.91300005}
   m_AnchorMax: {x: 0.8677083, y: 0.91300005}
-  m_AnchoredPosition: {x: 31.532959, y: -25}
+  m_AnchoredPosition: {x: 31.533203, y: -25}
   m_SizeDelta: {x: 328.15063, y: 126.08743}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &142135072
@@ -670,7 +670,6 @@ GameObject:
   - component: {fileID: 1681465222}
   - component: {fileID: 1681465221}
   - component: {fileID: 1681465224}
-  - component: {fileID: 1681465225}
   m_Layer: 5
   m_Name: ButtonMultiplayer
   m_TagString: Untagged
@@ -741,7 +740,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1681465224}
-        m_MethodName: LoadProfileScene
+        m_MethodName: LoadMultiPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -789,18 +788,6 @@ CanvasRenderer:
   m_GameObject: {fileID: 1681465219}
   m_CullTransparentMesh: 0
 --- !u!114 &1681465224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681465219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 773049548973c3149a3eee863f70692d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1681465225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

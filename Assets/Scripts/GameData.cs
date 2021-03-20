@@ -16,7 +16,6 @@ public class GameData : MonoBehaviour
             sceneLoader.LoadMainScreen();
             PlayerPrefs.SetString("userinfo", "yes");
         }
-        
     }
     public void ResetPlayerPrefs()
     {

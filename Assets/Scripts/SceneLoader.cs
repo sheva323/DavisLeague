@@ -30,4 +30,8 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(8);
     }
+    public void LoadMultiPlayer()
+    {
+        SceneManager.LoadScene(10);
+    }
 }

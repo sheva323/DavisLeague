@@ -9,17 +9,21 @@ public class SceneLoader : MonoBehaviour
     public void LoadProfileScene()
     {
         if (PlayerPrefs.GetString("userinfo") == "yes")
-            SceneManager.LoadScene(2);
+        {
+            PlayerPrefs.SetInt("BattleNumber", 0);
+            SceneManager.LoadScene("A1. Main Screen");
+        }
         else
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("A0-1. Profile");
     }
     public void LoadA0Scene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("A0. Intro");
     }
     public void LoadMainScreen()
     {
-        SceneManager.LoadScene(2);
+        PlayerPrefs.SetInt("BattleNumber", 0);
+        SceneManager.LoadScene("A1. Main Screen");
     }
 
     public void LoadA3Scene()
@@ -28,10 +32,10 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadSettings()
     {
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene("A6.Settings");
     }
     public void LoadMultiPlayer()
     {
-        SceneManager.LoadScene(10);
+        SceneManager.LoadScene("B1.MultiplayerMenu");
     }
 }

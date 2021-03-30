@@ -17,6 +17,7 @@ public class Menu : MonoBehaviourPunCallbacks
     public Text playerListText;
     public Button startGameButton;
 
+    public GameObject backButton;
     private void Start()
     {
         createRoomButton.interactable = false;
@@ -33,6 +34,7 @@ public class Menu : MonoBehaviourPunCallbacks
         //deactivate all screens 
         mainScreen.SetActive(false);
         lobbyScreen.SetActive(false);
+        backButton.SetActive(false);
         //enable requested screen
         screen.SetActive(true);
     }
@@ -76,6 +78,14 @@ public class Menu : MonoBehaviourPunCallbacks
 
     public void OnStartGameButton()
     {
-        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "MainScreenMP");
+        if (PhotonNetwork.PlayerList.Length > 1)
+        {
+            PlayerPrefs.SetInt("BattleNumber", 0);
+            NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "Main ScreenMP");
+        }
+        else
+        {
+            //show an error message
+        }
     }
 }

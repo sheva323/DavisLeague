@@ -22,17 +22,10 @@ public class StartButton : MonoBehaviour
         GetHandButton = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void LoadBattle()
     {
         if (Slot0.childCount > 0 && Slot1.childCount > 0 && Slot2.childCount > 0 && Slot3.childCount > 0 && Slot4.childCount > 0)
         {
-            SceneManager.LoadScene(3);
             if (PlayerPrefs.GetInt("BattleNumber") == 1)
             {
                 PlayerPrefs.SetInt("GlobalBattleScorePlayer1", 0); //Restart Number of Battles won
@@ -40,6 +33,7 @@ public class StartButton : MonoBehaviour
                 PlayerPrefs.SetInt("ScorePlayer1", 0);//Restart Scoreplayer
                 PlayerPrefs.SetInt("ScoreCPU", 0);//Restart Score CPU
             }
+            SceneManager.LoadScene(3);
         }
         else
         {

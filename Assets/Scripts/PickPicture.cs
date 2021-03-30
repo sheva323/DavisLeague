@@ -5,9 +5,15 @@ using UnityEngine.UI;
 
 public class PickPicture : MonoBehaviour
 {
-	public Image Picture; 
-
-	public void PickImage(int maxSize)
+	public Image Picture;
+    private void Start()
+    {
+        if (PlayerPrefs.GetString("picturepath") != "")
+        {
+			LoadPicture(512);
+        }
+    }
+    public void PickImage(int maxSize)
 	{
 		NativeGallery.Permission permission = NativeGallery.GetImageFromGallery((path) =>
 		{
@@ -25,5 +31,12 @@ public class PickPicture : MonoBehaviour
 		}, "Select a PNG image", "image/png");
 
 		Debug.Log("Permission result: " + permission);
+	}
+	public void LoadPicture(int maxSize)
+    {
+		Texture2D texture = NativeGallery.LoadImageAtPath(PlayerPrefs.GetString("picturepath"), maxSize);
+		texture.filterMode = FilterMode.Point;
+		Picture.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100.0f);
+		Picture.preserveAspect = true;
 	}
 }

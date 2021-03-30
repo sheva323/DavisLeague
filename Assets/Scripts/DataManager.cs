@@ -7,11 +7,9 @@ using UnityEngine.SceneManagement;
 public class DataManager : MonoBehaviour
 {
     public Text UserName;
-    public Text UserMaxScore;
     void Start()
     {
         UserName.text = PlayerPrefs.GetString("username");
-        UserMaxScore.text = "845";
     }
 
     // Update is called once per frame
@@ -21,6 +19,11 @@ public class DataManager : MonoBehaviour
     }
     public void Button()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("A1. Main Screen");
+    }
+    public void TryAgain()
+    {
+        PlayerPrefs.SetInt("BattleNumber", 0);
+        SceneManager.LoadScene("A1. Main Screen");
     }
 }

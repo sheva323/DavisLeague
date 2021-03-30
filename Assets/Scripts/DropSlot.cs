@@ -31,9 +31,6 @@ public class DropSlot : MonoBehaviour, IDropHandler
             PlayerPrefs.SetInt(ValueArray, Cardvalue); //Save the value to Player preferences with the name of "SlotIndex" asssigned to each of the 5 Slots in ...
             //... scene A1 upper part when 5 cards are dragged to the 5 slots
             PlayerPrefs.SetString(Tag, CardTag);
-            print(PlayerPrefs.GetString("Tag0"));
-            print(PlayerPrefs.GetString("Tag1"));
-            print(PlayerPrefs.GetInt(ValueArray));
         }
     }
 

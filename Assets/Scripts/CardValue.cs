@@ -23,28 +23,22 @@ public class CardValue : MonoBehaviour
         {
             case "allstar":
                 Cardvalue = Random.Range(40, 49);
-                textValue.text = Cardvalue.ToString();
                 break;
 
             case "roleplayer":
                 Cardvalue = Random.Range(30, 39);
-                textValue.text = Cardvalue.ToString();
                 break;
             case "roleplayer2":
                 Cardvalue = Random.Range(20, 29);
-                textValue.text = Cardvalue.ToString();
                 break;
             case "roleplayer3":
                 Cardvalue = Random.Range(10, 19);
-                textValue.text = Cardvalue.ToString();
                 break;
             case "benchwarmer":
                 Cardvalue = Random.Range(1, 9);
-                textValue.text = Cardvalue.ToString();
                 break;
             case "superstar":
                 Cardvalue = Random.Range(50, 55);
-                textValue.text = Cardvalue.ToString();
                 break;
             default:
                 break;
